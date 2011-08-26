@@ -1,0 +1,93 @@
+" .vimrc file
+" Konstantin Bukley <madundead@gmail.com>
+" last update 2011-08-25
+if has('gui_running')
+  winpos 0 0
+  set lines=999 columns=999
+  " no toolbar
+  set guioptions-=T
+  " no menubar
+  set guioptions-=m
+  " remove scrollbars
+  set guioptions+=LlRrb
+  set guioptions-=LlRrb
+  " lets pretend that this is textmate lol
+  " set guifont=Monaco:h10:cANSI
+  colorscheme solarized
+endif
+
+if &compatible
+  " turn off vi-compatible mode
+  set nocompatible
+endif
+
+" copying to clipboard
+set clipboard=autoselect,unnamed,exclude:cons\|linux
+" dunno
+set matchtime=2
+" do not redraw while running macros
+set lazyredraw
+" highlight search
+set hlsearch
+" force backspace to behave like in any other editor
+set backspace=2
+" status line google for tokens
+set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
+" show status even for single buffer displayed
+set laststatus=2
+" editor will start searching when you type the first character of the search string
+set incsearch
+" highlight current line
+set cursorline
+" enables menu at the bottom
+set wildmenu
+" dont wrap lines
+set nowrap
+" when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
+set scrolloff=2
+" turn off visualbell
+set novisualbell
+" number rows
+set number
+" show matching braces
+set showmatch
+" shows when you are in insert mode
+set showmode
+" shows commands in right bottom corner 
+set showcmd
+" show cursor position all the tiem
+set ruler
+" show title in console status bar
+set title
+" automatically inserts one extra level of indentation in some cases
+set smartindent
+" affects how <TAB> key presses are interpreted depending on where the cursor is
+set smarttab
+" tab counts as 4 columns
+set tabstop=4
+" numbers of spaces to (auto)indent
+set shiftwidth=4
+" disable welcome message 
+set shortmess+=I
+" trying to maximize
+" Keyboard mappings
+" swtich between windows by <Ctrl> + arrows
+nmap <silent> <C-Up> :wincmd k<CR>
+nmap <silent> <C-Down> :wincmd j<CR>
+nmap <silent> <C-Left> :wincmd h<CR>
+nmap <silent> <C-Right> :wincmd l<CR>
+" change size of vsplited buffers by <Alt> + arrows
+map <A-Left> <C-W><
+map <A-Right> <C-W>>
+" next buffer by F1
+nmap <silent> <F1> gt
+" vertical split by F2
+nmap <silent> <F2> :vsplit<CR>
+" set syntax highlighting
+syntax on
+" includes ftplugin.vim which is responsible for filetype detection
+filetype plugin on
+" *.phtml => html
+autocmd BufNewFile,BufRead *.phtml set filetype=html
+" background
+set background=light
