@@ -1,54 +1,90 @@
-" .vimrc file
-" Konstantin Bukley <madundead@gmail.com>
-" last update 2011-08-25
-if has('gui_running')
-  winpos 0 0
-  set lines=999 columns=999
-  " no toolbar
-  set guioptions-=T
-  " no menubar
-  set guioptions-=m
-  " remove scrollbars
-  set guioptions+=LlRrb
-  set guioptions-=LlRrb
-  " lets pretend that this is textmate lol
-  " set guifont=Monaco:h10:cANSI
-  colorscheme solarized
-endif
+" My .vimrc file
+"
+" Author: Konstantin Bukley <madundead@gmail.com>
+" Raw version: http://raw.github.com/madundead/stuff/master/vim/vimrc
+" 
+" Inspired by:
+" Vincent Driessen <vincent@datafox.nl> 
+" https://raw.github.com/nvie/vimrc/master/vimrc
+"
+" amix the lucky stiff
+" http://amix.dk/vim/vimrc.html
+"
+" Colorscheme:
+" Ethan Schoonover
+" https://github.com/altercation/solarized
+"
+" Feel free to use, modify or share this file 
 
+" ========================================================
+" -> General
+" ========================================================
+
+" turn off vi-compatible mode
 if &compatible
-  " turn off vi-compatible mode
   set nocompatible
 endif
 
-" copying to clipboard
-set clipboard=autoselect,unnamed,exclude:cons\|linux
-" dunno
-set matchtime=2
-" do not redraw while running macros
-set lazyredraw
+" encoding
+set encoding=utf-8                                  
+set fileencoding=utf-8
+
+" quantity of linse vim have to remember
+set history=500
+
+" includes ftplugin.vim which is responsible for filetype detection
+filetype plugin on
+
+" set syntax highlighting
+syntax on
+
+" setting up <leader>
+let mapleader=","
+let g:mapleader=","
+
+
+" ========================================================
+" -> Colors & Fonts
+" ========================================================
+
+" TODO: operating system check
+if has('gui_running')
+	winpos 0 0
+	set lines=999 columns=999    " trying to maximize
+	set guioptions-=T            " remove toolbar
+	set guioptions-=m            " remove menubar
+	set guioptions+=LlRrb        " remove
+	set guioptions-=LlRrb        " scrollbars
+	set guifont=Monaco:h10:cANSI " problem, textmate?
+	colorscheme solarized        " awesome colorscheme
+	set background=light         " realy nice :3 
+else 
+	" TODO: improve  non-gui section
+	colorscheme torte
+	set background=dark
+endif
+
+
+" ========================================================
+" -> User Interface
+" ========================================================
+
+" enables menu at the bottom
+set wildmenu
 " highlight search
 set hlsearch
-" force backspace to behave like in any other editor
-set backspace=2
+" do not redraw while running macros
+set lazyredraw
 " status line google for tokens
 set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
 " show status even for single buffer displayed
 set laststatus=2
-" editor will start searching when you type the first character of the search string
-set incsearch
 " highlight current line
 set cursorline
-" enables menu at the bottom
-set wildmenu
-" dont wrap lines
-set nowrap
-" when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
-set scrolloff=2
-" turn off visualbell
-set novisualbell
 " number rows
 set number
+" disable welcome message 
+set shortmess+=I
 " show matching braces
 set showmatch
 " shows when you are in insert mode
@@ -59,6 +95,33 @@ set showcmd
 set ruler
 " show title in console status bar
 set title
+" dont wrap lines
+set nowrap
+" when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
+set scrolloff=2
+
+
+" ========================================================
+" -> Behavior & Different Tricks
+" ========================================================
+
+" copying to clipboard
+set clipboard=autoselect,unnamed,exclude:cons\|linux
+" dunno
+set matchtime=2
+" force backspace to behave like in any other editor
+set backspace=2
+" editor will start searching when you type the first character of the search string
+set incsearch
+" turn off visualbell
+set novisualbell
+" no ~ backup files
+set nobackup
+
+" ========================================================
+" -> Indentations
+" ========================================================
+
 " automatically inserts one extra level of indentation in some cases
 set smartindent
 " affects how <TAB> key presses are interpreted depending on where the cursor is
@@ -67,27 +130,76 @@ set smarttab
 set tabstop=4
 " numbers of spaces to (auto)indent
 set shiftwidth=4
-" disable welcome message 
-set shortmess+=I
-" trying to maximize
-" Keyboard mappings
-" swtich between windows by <Ctrl> + arrows
+
+
+" ========================================================
+" -> Filetype Depended Settings
+" ========================================================
+
+if has("autocmd")
+	" phtml => html
+	autocmd BufNewFile,BufRead *.phtml set filetype=html
+
+	" Gemfile => rb
+	autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
+
+	" YAML
+	autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+    augroup html_files "{{{
+        au!
+		" make closetag here
+        " autocmd filetype html,xhtml,xml source ~\vimfiles\scripts\closetag.vim
+    augroup end " }}}
+
+	augroup ruby_files "{{{
+        au!
+        autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+    augroup end " }}}
+
+    augroup css_files "{{{
+        au!
+        autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
+    augroup end "}}}
+
+    augroup javascript_files "{{{
+        au!
+        autocmd filetype javascript setlocal expandtab
+    augroup end "}}}
+endif
+
+" ========================================================
+" -> Filetype Depended Settings
+" ========================================================
+
+" make p in visual mode replace the selected text with the yank register
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" swtich between windows by <Ctrl> + arrows (that's not nice at all)
 nmap <silent> <C-Up> :wincmd k<CR>
 nmap <silent> <C-Down> :wincmd j<CR>
 nmap <silent> <C-Left> :wincmd h<CR>
 nmap <silent> <C-Right> :wincmd l<CR>
+
 " change size of vsplited buffers by <Alt> + arrows
 map <A-Left> <C-W><
 map <A-Right> <C-W>>
+
+" ; = : 
+nnoremap ; :
+
+" folding
+nnoremap <F4> za
+
 " next buffer by F1
 nmap <silent> <F1> gt
+
 " vertical split by F2
 nmap <silent> <F2> :vsplit<CR>
-" set syntax highlighting
-syntax on
-" includes ftplugin.vim which is responsible for filetype detection
-filetype plugin on
-" *.phtml => html
-autocmd BufNewFile,BufRead *.phtml set filetype=html
-" background
-set background=light
+
+" Use the damn hjkl keys
+" fucking smart!
+" map <up> <nop>
+" map <down> <nop>
+" map <left> <nop>
+" map <right> <nop>
