@@ -16,6 +16,7 @@
 "
 " Feel free to use, modify or share this file 
 
+
 " ========================================================
 " -> General
 " ========================================================
@@ -118,6 +119,7 @@ set novisualbell
 " no ~ backup files
 set nobackup
 
+
 " ========================================================
 " -> Indentations
 " ========================================================
@@ -133,7 +135,7 @@ set shiftwidth=4
 
 
 " ========================================================
-" -> Filetype Depended Settings
+" -> Filetype Dependent Settings
 " ========================================================
 
 if has("autocmd")
@@ -167,6 +169,7 @@ if has("autocmd")
         autocmd filetype javascript setlocal expandtab
     augroup end "}}}
 endif
+
 
 " ========================================================
 " -> Filetype Depended Settings
