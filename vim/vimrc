@@ -200,6 +200,9 @@ nmap <silent> <F1> gt
 " vertical split by F2
 nmap <silent> <F2> :vsplit<CR>
 
+" remove search highlight
+nmap <silent> <C-N> :silent noh<CR>
+
 " Use the damn hjkl keys
 " fucking smart!
 " map <up> <nop>
