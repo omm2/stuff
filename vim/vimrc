@@ -209,3 +209,8 @@ nmap <silent> <C-N> :silent noh<CR>
 " map <down> <nop>
 " map <left> <nop>
 " map <right> <nop>
+
+" Search mappings: These will make it so that going to the next one in a
+" search will center on the line it's found in.
+map N Nzz
+map n nzz
