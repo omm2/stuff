@@ -166,17 +166,28 @@ if has("autocmd")
 
     augroup javascript_files "{{{
         au!
-        autocmd filetype javascript setlocal expandtab
     augroup end "}}}
 endif
 
 
 " ========================================================
-" -> Filetype Depended Settings
+" -> Hotkeys & Bindings
 " ========================================================
 
 " make p in visual mode replace the selected text with the yank register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" C-Space for autocomplete
+if has("gui")
+    " C-Space seems to work under gVim on both Linux and win32
+    inoremap <C-Space> <C-n>
+else " no gui
+  if has("unix")
+    inoremap <Nul> <C-n>
+  else
+  " I have no idea of the name of Ctrl-Space elsewhere
+  endif
+endif
 
 " swtich between windows by <Ctrl> + arrows (that's not nice at all)
 nmap <silent> <C-Up> :wincmd k<CR>
@@ -194,8 +205,9 @@ nnoremap ; :
 " folding
 nnoremap <F4> za
 
-" next buffer by F1
-nmap <silent> <F1> gt
+" switching between tabs
+nmap <silent> <C-Tab> :tabnext<CR>
+nmap <silent> <C-S-Tab> :tabprevious<CR>
 
 " vertical split by F2
 nmap <silent> <F2> :vsplit<CR>
