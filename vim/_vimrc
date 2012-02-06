@@ -205,6 +205,9 @@ nnoremap ; :
 " folding
 nnoremap <F4> za
 
+" leader + a to copy all text from current buffer
+nmap <leader>a :%y+ <CR>
+
 " switching between tabs
 nmap <silent> <C-Tab> :tabnext<CR>
 nmap <silent> <C-S-Tab> :tabprevious<CR>
