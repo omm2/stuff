@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://openbox.org/
+                file:///usr/share/openbox/menu.xsd">
+
+<menu id="root-menu" label="Openbox 3">
+  <item label="TERMINAL">
+    <action name="Execute"><execute>x-terminal-emulator</execute></action>
+  </item>
+  <item label="WEB BROWSER">
+    <action name="Execute"><execute>chromium-browser</execute></action>
+  </item>
+  <item label="FILE BROWSER">
+    <action name="Execute"><execute>thunar</execute></action>
+  </item>
+  <item label="IM">
+    <action name="Execute"><execute>pidgin -f</execute></action>
+  </item>
+  <item label="MUSIC">
+    <action name="Execute"><execute>exaile</execute></action>
+  </item>
+  <item label="VIDEO">
+    <action name="Execute"><execute>vlc</execute></action>
+  </item>
+  <item label="VBOX">
+    <action name="Execute"><execute>VirtualBox</execute></action>
+  </item>
+  <item label="ECLIPSE">
+    <action name="Execute"><execute>eclipse</execute></action>
+  </item>
+  <item label="TWITTER">
+    <action name="Execute"><execute>hotot</execute></action>
+  </item>
+  <item label="TORRENTS">
+    <action name="Execute"><execute>transmission-gtk</execute></action>
+  </item>
+  <separator />
+  <item label="SUSPEND">
+    <action name="Execute"><execute>gdm-control --suspend</execute></action>
+  </item>
+</menu>
+
+</openbox_menu>
