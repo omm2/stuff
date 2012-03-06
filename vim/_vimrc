@@ -120,6 +120,8 @@ set incsearch
 set novisualbell
 " no ~ backup files
 set nobackup
+set nowb
+set noswapfile
 
 
 " ========================================================
