@@ -183,6 +183,10 @@ endif
 " make p in visual mode replace the selected text with the yank register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
+" to save session
+autocmd VIMEnter * :source ~/session.vim
+autocmd VIMLeave * :mksession! ~/session.vim
+
 " C-Space for autocomplete
 if has("gui")
     " C-Space seems to work under gVim on both Linux and win32
