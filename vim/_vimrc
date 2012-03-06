@@ -78,6 +78,8 @@ set hlsearch
 set lazyredraw
 " status line google for tokens
 set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
+" tab label - #{number} [{filename}] {modified}
+set guitablabel=#%N\ [%t]\ %M
 " show status even for single buffer displayed
 set laststatus=2
 " highlight current line
