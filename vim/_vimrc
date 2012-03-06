@@ -99,7 +99,7 @@ set title
 " dont wrap lines
 set nowrap
 " when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
-set scrolloff=2
+set scrolloff=5
 
 
 " ========================================================
