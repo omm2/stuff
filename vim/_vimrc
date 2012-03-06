@@ -216,6 +216,9 @@ nnoremap <F4> za
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
 
+" when pressing <leader>cd switch to the directory of the open buffer
+map <leader>cd :cd %:p:h<cr>
+
 " switching between tabs
 nmap <silent> <C-Tab> :tabnext<CR>
 nmap <silent> <C-S-Tab> :tabprevious<CR>
