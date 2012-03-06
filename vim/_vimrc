@@ -203,6 +203,10 @@ nmap <silent> <C-Right> :wincmd l<CR>
 map <A-Left> <C-W><
 map <A-Right> <C-W>>
 
+" bash like keys for the command line
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+
 " ; = : 
 nnoremap ; :
 
