@@ -100,6 +100,8 @@ set title
 set nowrap
 " when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
 set scrolloff=5
+" how many tenths of a second to blink on matching brackets
+set mat=2
 
 
 " ========================================================
