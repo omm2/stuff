@@ -147,12 +147,18 @@ set shiftwidth=4
 if has("autocmd")
 	" phtml => html
 	autocmd BufNewFile,BufRead *.phtml set filetype=html
+	
+	" haml => haml
+	autocmd BufNewFile,BufRead *.haml set filetype=haml
 
 	" Gemfile => rb
 	autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
 
 	" YAML
 	autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+	" HAML
+	autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
     augroup html_files "{{{
         au!
@@ -226,8 +232,8 @@ nmap <leader>a :%y+ <CR>
 map <leader>cd :cd %:p:h<cr>
 
 " switching between tabs
-nmap <silent> <C-Tab> :tabnext<CR>
-nmap <silent> <C-S-Tab> :tabprevious<CR>
+nmap <silent> <Tab> :tabnext<CR>
+nmap <silent> <S-Tab> :tabprevious<CR>
 
 " vertical split by F2
 nmap <silent> <F2> :vsplit<CR>
