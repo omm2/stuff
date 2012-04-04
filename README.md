@@ -17,3 +17,9 @@ I love Vim.
 * F1 == :tabnew
 * F2 == :vsplit
 * F3 == :split
+
+## Openbox
+
+I love openbox
+
+autostart.sh -> list goes here
