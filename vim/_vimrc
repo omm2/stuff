@@ -147,7 +147,7 @@ set shiftwidth=4
 if has("autocmd")
 	" phtml => html
 	autocmd BufNewFile,BufRead *.phtml set filetype=html
-	
+
 	" haml => haml
 	autocmd BufNewFile,BufRead *.haml set filetype=haml
 
@@ -160,25 +160,25 @@ if has("autocmd")
 	" HAML
 	autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
-    augroup html_files "{{{
-        au!
-		" make closetag here
-        " autocmd filetype html,xhtml,xml source ~\vimfiles\scripts\closetag.vim
-    augroup end " }}}
+	augroup html_files "{{{
+		au!
+		" TODO: make closetag here
+		" autocmd filetype html,xhtml,xml source ~\vimfiles\scripts\closetag.vim
+	augroup end " }}}
 
 	augroup ruby_files "{{{
-        au!
-        autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-    augroup end " }}}
+		au!
+		autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+	augroup end " }}}
 
-    augroup css_files "{{{
-        au!
-        autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
-    augroup end "}}}
+	augroup css_files "{{{
+		au!
+		autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
+	augroup end "}}}
 
-    augroup javascript_files "{{{
-        au!
-    augroup end "}}}
+	augroup javascript_files "{{{
+		au!
+	augroup end "}}}
 endif
 
 
@@ -206,10 +206,10 @@ else " no gui
 endif
 
 " swtich between windows by <Ctrl> + arrows (that's not nice at all)
-nmap <silent> <C-Up> :wincmd k<CR>
-nmap <silent> <C-Down> :wincmd j<CR>
-nmap <silent> <C-Left> :wincmd h<CR>
-nmap <silent> <C-Right> :wincmd l<CR>
+nmap <silent> <Up> :wincmd k<CR>
+nmap <silent> <Down> :wincmd j<CR>
+nmap <silent> <Left> :wincmd h<CR>
+nmap <silent> <Right> :wincmd l<CR>
 
 " change size of vsplited buffers by <Alt> + arrows
 map <A-Left> <C-W><
@@ -222,7 +222,25 @@ cnoremap <C-E> <End>
 " ; = : 
 nnoremap ; :
 
-" folding
+" close buffer by Q
+nmap Q :q!<CR>
+
+" new tab by F1
+nmap <F1> :tabnew<CR>
+imap <F1> <ESC> :tabnew<CR>
+vmap <F1> :tabnew<CR>
+
+" vertical split by F2
+nmap <silent> <F2> :vsplit<CR>
+imap <F2> <ESC> :vsplit<CR>
+vmap <F2> :vsplit<CR>
+
+" horisontal split by F3
+nmap <silent> <F3> :split<CR>
+imap <F3> <ESC> :split<CR>
+vmap <F3> :split<CR>
+
+" folding by F4
 nnoremap <F4> za
 
 " leader + a to copy all text from current buffer
@@ -234,9 +252,6 @@ map <leader>cd :cd %:p:h<cr>
 " switching between tabs
 nmap <silent> <Tab> :tabnext<CR>
 nmap <silent> <S-Tab> :tabprevious<CR>
-
-" vertical split by F2
-nmap <silent> <F2> :vsplit<CR>
 
 " remove search highlight
 nmap <silent> <C-N> :silent noh<CR>
