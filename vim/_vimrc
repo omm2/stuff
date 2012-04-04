@@ -190,8 +190,8 @@ endif
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 " to save session
-"autocmd VIMEnter * :source ~/.session.vim
-"autocmd VIMLeave * :mksession! ~/.session.vim
+autocmd VIMEnter * if !argc() | :source ~/.session.vim | endif
+autocmd VIMLeave * :mksession! ~/.session.vim
 
 " C-Space for autocomplete
 if has("gui")
