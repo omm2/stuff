@@ -12,13 +12,13 @@ blahblah clone blahblah ./setup.sh
 
 I love Vim.
 
-#### Plugins
+##### Plugins
 
 * huy
 * pizda
 * G-gurda
 
-#### Hotkeys
+##### Hotkeys
 
 * F1 == :tabnew
 * F2 == :vsplit
@@ -28,5 +28,12 @@ I love Vim.
 
 I love openbox
 
-#### Autostart 
+##### Autostart 
+
 autostart.sh -> list goes here
+
+##### Hotkeys
+
+* wobwob
+* kekek
+* keek
