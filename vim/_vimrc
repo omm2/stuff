@@ -110,6 +110,19 @@ set mat=2
 " -> Behavior & Different Tricks
 " ========================================================
 
+" shamelessly taken from YADR dotfile repo https://github.com/skwp/dotfiles
+" stuff to ignore whent tab completing
+set wildignore=*.o,*.obj,*~ 
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=*DS_Store*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**
+set wildignore+=*.png,*.jpg,*.gif
+
 " copying to clipboard
 set clipboard=autoselect,unnamed,exclude:cons\|linux
 " dunno
