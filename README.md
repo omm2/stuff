@@ -1,12 +1,20 @@
-# My personal dotfiles & stuff
+My personal dotfiles & stuff
+============================
 
 Feel free to use/modify/share it.
-Work is in progress
+Work is still in progress.
+Also I use this page as cheatsheet for hotkeys so don't be surprised.
 
-## INSTALL
-blahblah clone blahblah ./setup.sh
+INSTALL
+-------
+Just clone the repo and run setup.sh
+* <code>git clone git@github.com:madundead/stuff.git</code>
+* <code>./setup.sh</code>
 
-## CONTENTS
+Or you can simply rip off parts you're insterested in from config files.
+
+CONTENTS
+--------
 
 ### Vim
 
@@ -14,11 +22,16 @@ I love Vim.
 
 ##### Plugins
 
-* huy
-* pizda
-* G-gurda
+TODO: add links
 
-##### Hotkeys
+I'm not using [pathogen](/todo), cuz I have small set of stable plugins. So they're all included in repo:
+* [ SnipMate.vim ]() - TextMate-like snippets
+* [ surround.vim ]() - easy surround text with any brackets/quotes you want
+* [ zencoding.vim ]() - zencoding, nuff said
+
+##### Custom hotkeys
+
+TODO: this part
 
 * F1 == :tabnew
 * F2 == :vsplit
@@ -30,10 +43,23 @@ I love openbox
 
 ##### Autostart 
 
-autostart.sh -> list goes here
+Dependencies:
+<code>
+➜  ~  cat ~/.config/openbox/autostart.sh 
+  thunar --daemon &
+  xcompmgr &
+  nitrogen --restore &
+  gnome-settings-daemon &
+  wicd &
+  wicd-client &
+  tint2 &
+  dropbox start &
+</code>
 
 ##### Hotkeys
 
-* wobwob
-* kekek
-* keek
+TODO:
+
+CREDITS
+-------
+TODO:
