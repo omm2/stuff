@@ -30,7 +30,7 @@ endif
 set encoding=utf-8                                  
 set fileencoding=utf-8
 
-" quantity of linse vim have to remember
+" quantity of lines vim have to remember
 set history=500
 
 " includes ftplugin.vim which is responsible for filetype detection
