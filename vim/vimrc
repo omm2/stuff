@@ -48,7 +48,6 @@ let g:mapleader=","
 " -> Colors & Fonts
 " ========================================================
 
-" TODO: operating system check
 if has('gui_running')
 	winpos 0 0
 	set lines=999 columns=999    " trying to maximize
@@ -56,11 +55,11 @@ if has('gui_running')
 	set guioptions-=m            " remove menubar
 	set guioptions+=LlRrb        " remove
 	set guioptions-=LlRrb        " scrollbars
-	set guifont=Monaco:h10:cANSI " problem, textmate?
+	set guifont=Monaco\ 10       " problem, textmate?
 	colorscheme solarized        " awesome colorscheme
-	set background=light         " realy nice :3 
+	set background=dark          " realy nice :3 
 else 
-	" TODO: improve  non-gui section
+	set t_Co=256
 	colorscheme torte
 	set background=dark
 endif
@@ -261,6 +260,9 @@ nnoremap <F4> za
 
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
+
+" leader + , to launch NERDTree
+nmap <leader>, :NERDTree <CR>
 
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
