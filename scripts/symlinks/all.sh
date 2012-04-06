@@ -11,8 +11,8 @@ fi
 # vimrc
 if [ ! -f ~/.vimrc ];
 then
-	echo "ln -s $ROOT/vim/_vimrc ~/.vimrc"
-	ln -s $ROOT/vim/_vimrc ~/.vimrc
+	echo "ln -s $ROOT/vim/vimrc ~/.vimrc"
+	ln -s $ROOT/vim/vimrc ~/.vimrc
 fi
 
 # vimfiles

@@ -122,7 +122,8 @@ set wildignore+=*.gem
 set wildignore+=log/**
 set wildignore+=tmp/**
 set wildignore+=*.png,*.jpg,*.gif
-
+" W invokes sudo
+command W w !sudo tee % > /dev/null
 " copying to clipboard
 set clipboard=autoselect,unnamed,exclude:cons\|linux
 " dunno
