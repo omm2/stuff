@@ -159,15 +159,17 @@ set shiftwidth=4
 " ========================================================
 
 if has("autocmd")
-	" phtml => html
+	" Filetype matches:
+	" *.phtml => html
 	autocmd BufNewFile,BufRead *.phtml set filetype=html
 
-	" haml => haml
+	" *.haml => haml
 	autocmd BufNewFile,BufRead *.haml set filetype=haml
 
-	" Gemfile => rb
+	" Gemfile => ruby
 	autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
 
+	" Filetype rules:
 	" YAML
 	autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
@@ -177,7 +179,7 @@ if has("autocmd")
 	augroup html_files "{{{
 		au!
 		" TODO: make closetag here
-		" autocmd filetype html,xhtml,xml source ~\vimfiles\scripts\closetag.vim
+		autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
 	augroup end " }}}
 
 	augroup ruby_files "{{{
@@ -260,6 +262,9 @@ nnoremap <F4> za
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
 
+" leader + z to zencode
+nmap <leader>z <C-y>, <CR>
+
 " when pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
@@ -270,7 +275,7 @@ nmap <silent> <S-Tab> :tabprevious<CR>
 " remove search highlight
 nmap <silent> <C-N> :silent noh<CR>
 
-" Use the damn hjkl keys
+" use the damn hjkl keys
 " fucking smart!
 " map <up> <nop>
 " map <down> <nop>
@@ -282,7 +287,7 @@ nmap <silent> <C-N> :silent noh<CR>
 map N Nzz
 map n nzz
 
-" Mode Indication - Prominent!
+" mode indication - prominent!
 function! InsertStatuslineColor(mode)
   if a:mode == 'i'
     hi statusline guibg=red
