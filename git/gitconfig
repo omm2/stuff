@@ -1,3 +1,37 @@
 [user]
 	name = Konstantin Bukley
 	email = madundead@gmail.com
+
+[alias]
+	a = add
+	b = branch
+	c = commit -m
+	d = diff
+	f = fetch
+	g = grep
+	l = log
+	m = merge
+	co = checkout
+	p = pull
+	r = remote
+	s = status
+
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+	lc = log ORIG_HEAD.. --stat --no-merges
+
+	# from https://git.wiki.kernel.org/index.php/Aliases
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	who = shortlog -s --
+
+	# forced synchro
+	get = !git pull && git submodule update --init --recursive
+	put = !git commit -am "$1" && git push
+
+	# undo aliases
+	undo = !git reset --hard
+	undoclean = !git reset --hard && git clean -fd
+	uncommit = !git reset --soft HEAD^
+	unadd = !git reset HEAD
+	unstage = !git reset HEAD
+
