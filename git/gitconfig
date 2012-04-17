@@ -2,6 +2,16 @@
 	name = Konstantin Bukley
 	email = madundead@gmail.com
 
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = auto
+
+[core]
+	editor = vim
+	pager = less -R
+
 [alias]
 	a = add
 	b = branch
