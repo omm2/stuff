@@ -16,6 +16,8 @@
 	r = remote
 	s = status
 
+	st = status -s
+
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	lc = log ORIG_HEAD.. --stat --no-merges
 

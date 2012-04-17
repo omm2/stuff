@@ -161,6 +161,9 @@ if has("autocmd")
 	" Filetype matches:
 	" *.phtml => html
 	autocmd BufNewFile,BufRead *.phtml set filetype=html
+	
+	" *.erb => html
+	autocmd BufNewFile,BufRead *.erb set filetype=html
 
 	" *.haml => haml
 	autocmd BufNewFile,BufRead *.haml set filetype=haml
@@ -178,7 +181,8 @@ if has("autocmd")
 	augroup html_files "{{{
 		au!
 		" TODO: make closetag here
-		autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
+		" autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
+		autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
 	augroup end " }}}
 
 	augroup ruby_files "{{{
@@ -306,8 +310,8 @@ function! InsertLeaveActions()
   set nocursorcolumn
 endfunction
 
-au InsertEnter * call InsertStatuslineColor(v:insertmode)
-au InsertLeave * call InsertLeaveActions()
+"au InsertEnter * call InsertStatuslineColor(v:insertmode)
+"au InsertLeave * call InsertLeaveActions()
 
 " to handle exiting insert mode via a control-C
 inoremap <c-c> <c-o>:call InsertLeaveActions()<cr><c-c>
