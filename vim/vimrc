@@ -271,6 +271,9 @@ nmap <leader>, :NERDTree <CR>
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
 
+" leader + m to zencode
+nmap <silent> <leader>m :MRU<CR>
+
 " when pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
