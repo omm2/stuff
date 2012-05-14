@@ -137,6 +137,8 @@ set novisualbell
 set nobackup
 set nowb
 set noswapfile
+" doesn't select lines number in vim
+set mouse=a
 
 
 " ========================================================
