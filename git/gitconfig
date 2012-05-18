@@ -50,4 +50,4 @@
 	# awesome shit
 	# Paul Engemann – Push It To The Limit
 	#epic-push = !git push && mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null &
-	epic-push = !mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null & git st
+	epic-push = !mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null & git push
