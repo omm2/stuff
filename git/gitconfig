@@ -46,3 +46,7 @@
 	uncommit = !git reset --soft HEAD^
 	unadd = !git reset HEAD
 	unstage = !git reset HEAD
+
+	# awesome shit
+	# Paul Engemann – Push It To The Limit
+	epic-push = !git push && mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null &

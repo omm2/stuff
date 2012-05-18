@@ -22,5 +22,12 @@ then
 	ln -s $ROOT/vim/vimfiles ~/.vim
 fi
 
+# resources
+if [ ! -f ~/.resources ];
+then
+	echo "ln -s $ROOT/resources ~/.resources"
+	ln -s $ROOT/resources ~/.resources
+fi
+
 # TODO: add openbox
 # TODO: add all settings files I use
