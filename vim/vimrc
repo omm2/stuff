@@ -226,7 +226,7 @@ else " no gui
   endif
 endif
 
-" swtich between windows by <Ctrl> + arrows (that's not nice at all)
+" swtich between buffers by arrows (that's not nice at all)
 nmap <silent> <Up> :wincmd k<CR>
 nmap <silent> <Down> :wincmd j<CR>
 nmap <silent> <Left> :wincmd h<CR>
@@ -273,7 +273,7 @@ nmap <leader>, :NERDTree <CR>
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
 
-" leader + m to zencode
+" leader + m to MRU
 nmap <silent> <leader>m :MRU<CR>
 
 " when pressing <leader>cd switch to the directory of the open buffer
