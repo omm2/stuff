@@ -18,15 +18,15 @@ fi
 # vimfiles
 if [ ! -f ~/.vim ];
 then
-	echo "ln -s $ROOT/vim/vimfiles ~/.vim"
-	ln -s $ROOT/vim/vimfiles ~/.vim
+	echo "ln -s $ROOT/vim/vimfiles/ ~/.vim"
+	ln -s $ROOT/vim/vimfiles/ ~/.vim
 fi
 
 # resources
 if [ ! -f ~/.resources ];
 then
-	echo "ln -s $ROOT/resources ~/.resources"
-	ln -s $ROOT/resources ~/.resources
+	echo "ln -s $ROOT/resources/ ~/.resources"
+	ln -s $ROOT/resources/ ~/.resources
 fi
 
 # TODO: add openbox
