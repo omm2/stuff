@@ -1,10 +1,18 @@
 #!/bin/bash
 
-source ../common.sh
+function get_root_path {
+	CP=$(pwd)
+	cd ../../
+	RP=$(pwd)
+	cd $CP
+	echo $RP
+}
 
-ROOT=$(get_root_path)
+# If we are running this script from install.sh then ROOT is already defined
+if [ -z "${ROOT}" ]; then ROOT=$(get_root_path); fi
 
-source ../symlinks/all.sh
+source $ROOT/scripts/common.sh
+source $ROOT/scripts/symlinks/all.sh
 
 echo ""
 echo "======================="
