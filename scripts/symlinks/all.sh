@@ -2,32 +2,39 @@
 echo "Applying symlinks: "
 
 # gitconfig
-if [ ! -f ~/.gitconfig ];
-then
-	echo "ln -s $ROOT/git/gitconfig ~/.gitconfig"
-	ln -s $ROOT/git/gitconfig ~/.gitconfig
-fi
+echo "ln -s $ROOT/git/gitconfig ~/.gitconfig"
+ln -sf $ROOT/git/gitconfig ~/.gitconfig
 
 # vimrc
-if [ ! -f ~/.vimrc ];
-then
-	echo "ln -s $ROOT/vim/vimrc ~/.vimrc"
-	ln -s $ROOT/vim/vimrc ~/.vimrc
-fi
+echo "ln -s $ROOT/vim/vimrc ~/.vimrc"
+ln -sf $ROOT/vim/vimrc ~/.vimrc
 
 # vimfiles
-if [ ! -f ~/.vim ];
-then
-	echo "ln -s $ROOT/vim/vimfiles/ ~/.vim"
-	ln -s $ROOT/vim/vimfiles/ ~/.vim
-fi
+rm -rf ~/.vim
+unlink ~/.vim 
+echo "ln -s $ROOT/vim/vimfiles/ ~/.vim"
+ln -sf $ROOT/vim/vimfiles/ ~/.vim
 
 # resources
-if [ ! -f ~/.resources ];
-then
-	echo "ln -s $ROOT/resources/ ~/.resources"
-	ln -s $ROOT/resources/ ~/.resources
-fi
+rm -rf ~/.resources
+unlink ~/.resources 
+echo "ln -s $ROOT/resources/ ~/.resources"
+ln -sf $ROOT/resources/ ~/.resources
 
-# TODO: add openbox
-# TODO: add all settings files I use
+# openbox
+rm -rf ~/.config/openbox
+unlink ~/.config/openbox 
+echo "ln -s $ROOT/openbox/ ~/.config/openbox"
+ln -sf $ROOT/openbox/ ~/.config/openbox
+
+# tint2
+rm -rf ~/.config/tint2
+unlink ~/.config/tint2 
+echo "ln -s $ROOT/tint2/ ~/.config/tint2"
+ln -sf $ROOT/tint2/ ~/.config/tint2
+
+# terminator
+rm -rf ~/.config/terminator
+unlink ~/.config/terminator 
+echo "ln -s $ROOT/terminator/ ~/.config/terminator"
+ln -sf $ROOT/terminator/ ~/.config/terminator
