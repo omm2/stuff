@@ -4,10 +4,10 @@
   tab_position = bottom
 [keybindings]
   next_tab = <Ctrl>Tab
-  split_horiz = F3
+  split_horiz = <Ctrl>F3
   prev_tab = <Ctrl><Shift>Tab
-  close_term = <Alt>Q
-  split_vert = F2
+  close_term = <Ctrl>Q
+  split_vert = <Ctrl>F2
   new_tab = <Ctrl>T
 [profiles]
   [[default]]
