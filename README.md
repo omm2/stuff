@@ -44,7 +44,7 @@ I love openbox
 ##### Autostart 
 
 Dependencies:  
-<code>
+```
 ➜  ~  cat ~/.config/openbox/autostart.sh  
   thunar --daemon &  
   xcompmgr &  
@@ -54,7 +54,7 @@ Dependencies:
   wicd-client &  
   tint2 &  
   dropbox start &  
-</code>
+```
 
 ##### Hotkeys
 
