@@ -103,6 +103,8 @@ set nowrap
 set scrolloff=5
 " how many tenths of a second to blink on matching brackets
 set mat=2
+" put NERDTree on the right. just because I can
+let g:NERDTreeWinPos = "right"
 
 
 " ========================================================
