@@ -48,7 +48,7 @@ task_text = 1
 task_width = 250
 task_centered = 1
 task_padding = 1 1 
-task_font = Liberation Sans 10
+task_font = Droid Sans 10
 task_font_color = #ffffff 80
 task_active_font_color = #ffffff 100
 task_background_id = 0
@@ -79,3 +79,4 @@ mouse_middle = close
 mouse_right = iconify
 mouse_scroll_up = toggle
 mouse_scroll_down = iconify
+

@@ -1,0 +1,26 @@
+[global_config]
+  handle_size = 1
+  close_button_on_tab = False
+  tab_position = bottom
+[keybindings]
+  next_tab = <Ctrl>Tab
+  split_horiz = F3
+  prev_tab = <Ctrl><Shift>Tab
+  close_term = <Alt>Q
+  split_vert = F2
+  new_tab = <Ctrl>T
+[profiles]
+  [[default]]
+    login_shell = True
+    show_titlebar = False
+	scrollbar_position = disabled
+    font = Inconsolata Medium 11
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

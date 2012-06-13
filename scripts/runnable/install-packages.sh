@@ -8,4 +8,11 @@ zsh \
 vim  \
 tint2 \
 openbox \
+xcompmgr \
 mpg123 \
+aptitude \
+thunar \
+ttf-droid \
+ttf-inconsolata \
+vim-gtk \
+terminator \
