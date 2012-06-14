@@ -1,8 +1,14 @@
 My personal dotfiles & stuff
 ============================
 
-Feel free to use/modify/share it.  
-Work is still in progress.
+__Here be dragons:__
+
+1. works only in ubuntu
+2. work is still in progress
+3. this repo is full of fuck
+
+
+If this doesn't scares you then feel free to use/modify/share it.   
 
 INSTALL
 -------
