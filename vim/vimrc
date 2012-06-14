@@ -103,8 +103,13 @@ set nowrap
 set scrolloff=5
 " how many tenths of a second to blink on matching brackets
 set mat=2
+
 " put NERDTree on the right. just because I can
-let g:NERDTreeWinPos = "right"
+let NERDTreeWinPos = "right"
+" remove 'press ? for help' and .. (up on one dir)
+let NERDTreeMinimalUI = 1
+" replace ugly + with fancy arrows
+let NERDTreeDirArrows = 1
 
 
 " ========================================================
