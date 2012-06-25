@@ -2,7 +2,7 @@
 "
 " Author: Konstantin Bukley <madundead@gmail.com>
 " Raw version: http://raw.github.com/madundead/stuff/master/vim/vimrc
-" 
+"
 " Inspired by:
 " Vincent Driessen <vincent@datafox.nl> 
 " https://raw.github.com/nvie/vimrc/master/vimrc
@@ -27,7 +27,7 @@ if &compatible
 endif
 
 " encoding
-set encoding=utf-8                                  
+set encoding=utf-8
 set fileencoding=utf-8
 
 " quantity of lines vim have to remember
@@ -49,21 +49,20 @@ let g:mapleader=","
 " ========================================================
 
 if has('gui_running')
-	winpos 0 0
-	set lines=999 columns=999    " trying to maximize
-	set guioptions-=T            " remove toolbar
-	set guioptions-=m            " remove menubar
-	set guioptions+=LlRrb        " remove
-	set guioptions-=LlRrb        " scrollbars
-	set guifont=Monaco\ 10       " problem, textmate?
-	colorscheme solarized        " awesome colorscheme
-	set background=dark          " realy nice :3 
-else 
-	set t_Co=256
-	colorscheme torte
-	set background=dark
+  winpos 0 0
+  set lines=999 columns=999    " trying to maximize
+  set guioptions-=T            " remove toolbar
+  set guioptions-=m            " remove menubar
+  set guioptions+=LlRrb        " remove
+  set guioptions-=LlRrb        " scrollbars
+  set guifont=Monaco\ 10       " problem, textmate?
+  colorscheme solarized        " awesome colorscheme
+  set background=dark          " realy nice :3
+else
+  set t_Co=256
+  colorscheme torte
+  set background=dark
 endif
-
 
 " ========================================================
 " -> User Interface
@@ -146,6 +145,8 @@ set nowb
 set noswapfile
 " doesn't select lines number in vim
 set mouse=a
+" show whitespace characters
+set list listchars=tab:→\ ,trail:·
 
 
 " ========================================================
@@ -167,46 +168,46 @@ set shiftwidth=4
 " ========================================================
 
 if has("autocmd")
-	" Filetype matches:
-	" *.phtml => html
-	autocmd BufNewFile,BufRead *.phtml set filetype=html
-	
-	" *.erb => html
-	autocmd BufNewFile,BufRead *.erb set filetype=html
+  " Filetype matches:
+  " *.phtml => html
+  autocmd BufNewFile,BufRead *.phtml set filetype=html
 
-	" *.haml => haml
-	autocmd BufNewFile,BufRead *.haml set filetype=haml
+  " *.erb => html
+  autocmd BufNewFile,BufRead *.erb set filetype=html
 
-	" Gemfile => ruby
-	autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
+  " *.haml => haml
+  autocmd BufNewFile,BufRead *.haml set filetype=haml
 
-	" Filetype rules:
-	" YAML
-	autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
+  " Gemfile => ruby
+  autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
 
-	" HAML
-	autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+  " Filetype rules:
+  " YAML
+  autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-	augroup html_files "{{{
-		au!
-		" TODO: make closetag here
-		" autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
-		autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-	augroup end " }}}
+  " HAML
+  autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
-	augroup ruby_files "{{{
-		au!
-		autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
-	augroup end " }}}
+  augroup html_files "{{{
+    au!
+    " TODO: make closetag here
+    " autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
+    autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+  augroup end " }}}
 
-	augroup css_files "{{{
-		au!
-		autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
-	augroup end "}}}
+  augroup ruby_files "{{{
+    au!
+    autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+  augroup end " }}}
 
-	augroup javascript_files "{{{
-		au!
-	augroup end "}}}
+  augroup css_files "{{{
+    au!
+    autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
+  augroup end "}}}
+
+  augroup javascript_files "{{{
+    au!
+  augroup end "}}}
 endif
 
 
@@ -247,7 +248,7 @@ map <A-Right> <C-W>>
 cnoremap <C-A> <Home>
 cnoremap <C-E> <End>
 
-" ; = : 
+" ; = :
 nnoremap ; :
 
 " close buffer by Q
@@ -330,4 +331,3 @@ inoremap <c-c> <c-o>:call InsertLeaveActions()<cr><c-c>
 
 " default the statusline to green when entering Vim
 hi statusline guibg=green
-
