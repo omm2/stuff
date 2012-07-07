@@ -8,7 +8,7 @@ __Here be dragons:__
 3. this repo is full of fuck
 
 
-If this doesn't scares you then feel free to use/modify/share it.   
+If this doesn't scare you then feel free to use/modify/share it.   
 
 INSTALL
 -------
