@@ -1,6 +1,10 @@
 ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
+DISABLE_AUTO_UPDATE="true"
+
+# Env
+export EDITOR="vim"
 
 # Aliases
 alias be="bundle exec"
@@ -8,10 +12,10 @@ alias dspace="df -h -T"
 alias v="vim"
 
 # Settings
-DISABLE_AUTO_UPDATE="true"
+setopt autocd
 
 # Plugins
-plugins=(git)
+plugins=(git nyan)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
