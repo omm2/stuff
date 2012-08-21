@@ -12,9 +12,10 @@
 [profiles]
   [[default]]
     login_shell = True
-    show_titlebar = False
-	scrollbar_position = disabled
+    scrollbar_position = hidden
     font = Inconsolata Medium 11
+    cursor_shape = ibeam
+    show_titlebar = False
 [layouts]
   [[default]]
     [[[child1]]]
