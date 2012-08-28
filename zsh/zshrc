@@ -1,9 +1,8 @@
 ZSH=$HOME/.oh-my-zsh
+SECRETS=$HOME/Dropbox/backup/credentials.sh
 
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
-
-source "Dropbox/backup/credentials.sh"
 
 # Env
 export EDITOR="vim"
@@ -20,6 +19,7 @@ setopt autocd
 # Plugins
 plugins=(git nyan)
 
+source $SECRETS
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
