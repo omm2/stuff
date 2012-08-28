@@ -6,7 +6,7 @@ ARGC=("$#")
 API_KEY=""
 
 if [ $ARGC -ne 0 ]; then
-  echo "
+  eval "
    curl -s -F 'image=@$ARGV' -F 'key=$KEY_IMGUR' http://api.imgur.com/2/upload.xml | \
    grep -Eo '<[a-z_]+>http[^<]+' | \
    sed 's/^<.\|_./\U&/g;s/_/ /;s/<\(.*\)>/\x1B[0;34m\1:\x1B[0m /'
