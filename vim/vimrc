@@ -4,7 +4,7 @@
 " Raw version: http://raw.github.com/madundead/stuff/master/vim/vimrc
 "
 " Inspired by:
-" Vincent Driessen <vincent@datafox.nl> 
+" Vincent Driessen <vincent@datafox.nl>
 " https://raw.github.com/nvie/vimrc/master/vimrc
 "
 " amix the lucky stiff
@@ -26,15 +26,52 @@ if &compatible
   set nocompatible
 endif
 
+filetype off " temporary turning it off for vundle sake
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+" Colorscheme
+Bundle 'altercation/vim-colors-solarized'
+
+" Coding
+Bundle 'jQuery'
+Bundle 'rails.vim'
+
+" Utility
+Bundle 'mattn/zencoding-vim'
+Bundle 'snipMate'
+Bundle 'scrooloose/nerdtree'
+Bundle 'surround.vim'
+Bundle 'mru.vim'
+
+" Syntax highlight
+Bundle 'Markdown'
+Bundle 'cucumber.zip'
+Bundle 'tpope/vim-haml'
+Bundle 'kchmck/vim-coffee-script'
+
+" Appearence
+Bundle 'xolox/vim-shell'
+
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-ap prove) removal of unused bundles
+" see :h vundle for more details or wiki for FAQ
+
+" includes ftplugin.vim which is responsible for filetype detection
+filetype plugin indent on
+
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
 
 " quantity of lines vim have to remember
 set history=500
-
-" includes ftplugin.vim which is responsible for filetype detection
-filetype plugin on
 
 " set syntax highlighting
 syntax on
@@ -49,8 +86,6 @@ let g:mapleader=","
 " ========================================================
 
 if has('gui_running')
-  winpos 0 0
-  set lines=999 columns=999    " trying to maximize
   set guioptions-=T            " remove toolbar
   set guioptions-=m            " remove menubar
   set guioptions+=LlRrb        " remove
@@ -58,10 +93,12 @@ if has('gui_running')
   set guifont=Monaco\ 10       " problem, textmate?
   colorscheme solarized        " awesome colorscheme
   set background=dark          " realy nice :3
-else
   set t_Co=256
+  let g:solarized_termcolors=256
+else
+  set t_Co=16
   colorscheme torte
-  set background=dark
+  set background=light
 endif
 
 " ========================================================
@@ -207,6 +244,7 @@ if has("autocmd")
 
   augroup javascript_files "{{{
     au!
+    au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
   augroup end "}}}
 endif
 

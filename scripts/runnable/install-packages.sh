@@ -16,3 +16,4 @@ ttf-droid \
 ttf-inconsolata \
 vim-gtk \
 terminator \
+wmctrl \ # required for fullscreen vim
