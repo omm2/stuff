@@ -42,6 +42,8 @@ Bundle 'rails.vim'
 
 " Utility
 Bundle 'mattn/zencoding-vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mileszs/ack.vim'
 Bundle 'snipMate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
@@ -55,10 +57,8 @@ Bundle 'kchmck/vim-coffee-script'
 
 " Appearence
 Bundle 'xolox/vim-shell'
-
-" Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
+Bundle 'Lokaltog/vim-powerline'
+" Brief help " :BundleList          - list configured bundles " :BundleInstall(!)    - install(update) bundles
 " :BundleSearch(!) foo - search(or refresh cache first) for foo
 " :BundleClean(!)      - confirm(or auto-ap prove) removal of unused bundles
 " see :h vundle for more details or wiki for FAQ
@@ -86,15 +86,19 @@ let g:mapleader=","
 " ========================================================
 
 if has('gui_running')
-  set guioptions-=T            " remove toolbar
-  set guioptions-=m            " remove menubar
-  set guioptions+=LlRrb        " remove
-  set guioptions-=LlRrb        " scrollbars
-  set guifont=Monaco\ 10       " problem, textmate?
-  colorscheme solarized        " awesome colorscheme
-  set background=dark          " realy nice :3
+  set guioptions-=T                         " remove toolbar
+  set guioptions-=m                         " remove menubar
+  set guioptions+=LlRrb                     " remove
+  set guioptions-=LlRrb                     " scrollbars
+  set guifont=Monaco\ for\ Powerline\ 10    " patched monaco font
+  colorscheme solarized                     " awesome colorscheme
+  set background=dark                       " realy nice :3
   set t_Co=256
   let g:solarized_termcolors=256
+  " TODO make this work
+  "let g:Powerline_theme='skwp'
+  "let g:Powerline_colorscheme='skwp'
+  let g:Powerline_symbols='fancy'
 else
   set t_Co=16
   colorscheme torte
@@ -111,8 +115,8 @@ set wildmenu
 set hlsearch
 " do not redraw while running macros
 set lazyredraw
-" status line google for tokens
-set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
+" status line google for tokens (i switched to powerline)
+" set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
 " tab label - #{number} [{filename}] {modified}
 set guitablabel=#%N\ [%t]\ %M
 " show status even for single buffer displayed
@@ -256,6 +260,9 @@ endif
 " make p in visual mode replace the selected text with the yank register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
+" ack
+let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+
 " to save session
 autocmd VIMEnter * if !argc() | :source ~/.session.vim | endif
 autocmd VIMLeave * :mksession! ~/.session.vim
@@ -332,40 +339,7 @@ nmap <silent> <S-Tab> :tabprevious<CR>
 " remove search highlight
 nmap <silent> <C-N> :silent noh<CR>
 
-" use the damn hjkl keys
-" fucking smart!
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
-
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
-
-" mode indication - prominent!
-function! InsertStatuslineColor(mode)
-  if a:mode == 'i'
-    hi statusline guibg=red
-    set cursorcolumn
-  elseif a:mode == 'r'
-    hi statusline guibg=blue
-  else
-    hi statusline guibg= magenta
-  endif
-endfunction
-
-function! InsertLeaveActions()
-  hi statusline guibg=green
-  set nocursorcolumn
-endfunction
-
-"au InsertEnter * call InsertStatuslineColor(v:insertmode)
-"au InsertLeave * call InsertLeaveActions()
-
-" to handle exiting insert mode via a control-C
-inoremap <c-c> <c-o>:call InsertLeaveActions()<cr><c-c>
-
-" default the statusline to green when entering Vim
-hi statusline guibg=green

@@ -16,4 +16,5 @@ ttf-droid \
 ttf-inconsolata \
 vim-gtk \
 terminator \
+python-fontforge \ # required for vim powerline
 wmctrl \ # required for fullscreen vim
