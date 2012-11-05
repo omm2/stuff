@@ -38,7 +38,6 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Railscasts-Theme-GUIand256color'
 
 " Coding
-Bundle 'jQuery'
 Bundle 'tpope/vim-rails'
 
 " Utility
@@ -234,7 +233,6 @@ if has("autocmd")
 
   " ERB
   autocmd FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-
 
   augroup html_files "{{{
     au!
