@@ -6,3 +6,4 @@ wicd &
 wicd-client &
 tint2 &
 dropbox start &
+parcellite -d -n &
