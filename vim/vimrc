@@ -49,6 +49,13 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
 Bundle 'mru.vim'
 
+" Snippets
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
+
+
 " Syntax highlight
 Bundle 'Markdown'
 Bundle 'cucumber.zip'
