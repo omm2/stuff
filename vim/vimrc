@@ -38,13 +38,13 @@ Bundle 'altercation/vim-colors-solarized'
 
 " Coding
 Bundle 'jQuery'
-Bundle 'rails.vim'
+Bundle 'tpope/vim-rails'
 
 " Utility
 Bundle 'mattn/zencoding-vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim'
-Bundle 'msanders/snipmate.vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
 Bundle 'mru.vim'
@@ -214,7 +214,7 @@ if has("autocmd")
   autocmd BufNewFile,BufRead *.phtml set filetype=html
 
   " *.erb => html
-  autocmd BufNewFile,BufRead *.erb set filetype=html
+  autocmd BufNewFile,BufRead *.erb set filetype=eruby
 
   " *.haml => haml
   autocmd BufNewFile,BufRead *.haml set filetype=haml
@@ -228,6 +228,10 @@ if has("autocmd")
 
   " HAML
   autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+
+  " ERB
+  autocmd FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+
 
   augroup html_files "{{{
     au!
