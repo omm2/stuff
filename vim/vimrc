@@ -48,6 +48,7 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
 Bundle 'mru.vim'
+Bundle 'kien/ctrlp.vim'
 
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -65,10 +66,6 @@ Bundle 'kchmck/vim-coffee-script'
 " Appearence
 Bundle 'xolox/vim-shell'
 Bundle 'Lokaltog/vim-powerline'
-" Brief help " :BundleList          - list configured bundles " :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-ap prove) removal of unused bundles
-" see :h vundle for more details or wiki for FAQ
 
 " includes ftplugin.vim which is responsible for filetype detection
 filetype plugin indent on
@@ -102,10 +99,10 @@ if has('gui_running')
   set background=dark                       " realy nice :3
   set t_Co=256
   let g:solarized_termcolors=256
-  " TODO make this work
-  "let g:Powerline_theme='skwp'
-  "let g:Powerline_colorscheme='skwp'
   let g:Powerline_symbols='fancy'
+  " TODO make this work
+  " let g:Powerline_theme='skwp'
+  " let g:Powerline_colorscheme='skwp'
 else
   set t_Co=16
   colorscheme torte
@@ -150,6 +147,8 @@ set nowrap
 set scrolloff=5
 " how many tenths of a second to blink on matching brackets
 set mat=2
+" disable cursor blink
+set gcr=a:blinkon0
 
 " put NERDTree on the right. just because I can
 let NERDTreeWinPos = "right"
@@ -338,7 +337,11 @@ nmap <leader>, :NERDTree <CR>
 nmap <leader>z <C-y>, <CR>
 
 " leader + m to MRU
-nmap <silent> <leader>m :MRU<CR>
+nmap <silent> <C-M> :MRU<CR>
+imap <C-M> <ESC> :MRU<CR>
+
+" CtrlP for insert mode
+imap <C-P> <ESC> :CtrlP<CR>
 
 " when pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>

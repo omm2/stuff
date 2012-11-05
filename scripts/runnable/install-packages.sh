@@ -15,6 +15,7 @@ thunar \
 ttf-droid \
 ttf-inconsolata \
 vim-gtk \
+ack-grep \
 terminator \
 python-fontforge \ # required for vim powerline
 wmctrl \ # required for fullscreen vim
