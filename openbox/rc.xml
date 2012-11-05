@@ -277,6 +277,11 @@
         <execute>gedit</execute>
       </action>
     </keybind>
+    <keybind key="W-E">
+      <action name="Execute">
+        <execute>gvim</execute>
+      </action>
+    </keybind>
     <keybind key="W-W">
       <action name="Execute">
         <execute>chromium-browser</execute>
