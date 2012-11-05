@@ -57,7 +57,6 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 
-
 " Syntax highlight
 Bundle 'Markdown'
 Bundle 'cucumber.zip'
@@ -318,9 +317,9 @@ imap <F2> <ESC> :vsplit<CR>
 vmap <F2> :vsplit<CR>
 
 " horisontal split by F3
-nmap <silent> <F3> :split<CR>
-imap <F3> <ESC> :split<CR>
-vmap <F3> :split<CR>
+nmap <F3> :Ack 
+imap <F3> <Esc>:Ack 
+vmap <F3> <Esc>:Ack 
 
 " folding by F4
 nnoremap <F4> za

@@ -20,3 +20,4 @@ terminator \
 python-fontforge \ # required for vim powerline
 wmctrl \ # required for fullscreen vim
 parcellite \ # clipboard manager
+ffmpeg \ # for screencasting
