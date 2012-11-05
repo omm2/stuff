@@ -35,6 +35,7 @@ Bundle 'gmarik/vundle'
 
 " Colorscheme
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'Railscasts-Theme-GUIand256color'
 
 " Coding
 Bundle 'jQuery'
@@ -104,9 +105,8 @@ if has('gui_running')
   " let g:Powerline_theme='skwp'
   " let g:Powerline_colorscheme='skwp'
 else
-  set t_Co=16
-  colorscheme torte
-  set background=light
+  set term=gnome-256color
+  colorscheme railscasts
 endif
 
 " ========================================================
@@ -119,8 +119,6 @@ set wildmenu
 set hlsearch
 " do not redraw while running macros
 set lazyredraw
-" status line google for tokens (i switched to powerline)
-" set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%]
 " tab label - #{number} [{filename}] {modified}
 set guitablabel=#%N\ [%t]\ %M
 " show status even for single buffer displayed
