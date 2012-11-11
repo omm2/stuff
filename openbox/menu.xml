@@ -10,13 +10,13 @@
     <action name="Execute"><execute>x-terminal-emulator</execute></action>
   </item>
   <item label="WEB BROWSER">
-    <action name="Execute"><execute>chromium-browser</execute></action>
+    <action name="Execute"><execute>x-www-browser</execute></action>
   </item>
   <item label="FILE BROWSER">
     <action name="Execute"><execute>thunar</execute></action>
   </item>
-  <item label="IM">
-    <action name="Execute"><execute>pidgin -f</execute></action>
+  <item label="SKYPE">
+  <action name="Execute"><execute>skype</execute></action>
   </item>
   <item label="MUSIC">
     <action name="Execute"><execute>exaile</execute></action>
@@ -26,9 +26,6 @@
   </item>
   <item label="VBOX">
     <action name="Execute"><execute>VirtualBox</execute></action>
-  </item>
-  <item label="ECLIPSE">
-    <action name="Execute"><execute>eclipse</execute></action>
   </item>
   <item label="TWITTER">
     <action name="Execute"><execute>hotot</execute></action>
