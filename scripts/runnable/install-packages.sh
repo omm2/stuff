@@ -1,8 +1,9 @@
-#!/bin/bash
-# TODO add all packages i need
+#!/usr/bin/env bash
 
-# ubuntu
+# Ubuntu
 sudo apt-get install \
+gmrun \
+curl \
 htop \
 zsh \
 vim  \
@@ -17,7 +18,18 @@ ttf-inconsolata \
 vim-gtk \
 ack-grep \
 terminator \
-python-fontforge \ # required for vim powerline
-wmctrl \ # required for fullscreen vim
-parcellite \ # clipboard manager
-ffmpeg \ # for screencasting
+python-fontforge \
+wmctrl \
+parcellite \
+ffmpeg \
+libgconf-2-4 \
+libnss3-1d \
+libxss1 \
+ncurses-term \
+lib32stdc++6 \
+lib32asound2 \
+ia32-libs \
+libc6-i386 \
+lib32gcc1 \
+gtk-theme-switch \
+nitrogen \
