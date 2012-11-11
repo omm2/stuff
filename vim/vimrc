@@ -352,3 +352,6 @@ nmap <silent> <C-N> :silent noh<CR>
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
+" window title is always 'VIM'
+auto BufEnter * let &titlestring = "VIM"
