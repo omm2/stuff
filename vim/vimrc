@@ -47,7 +47,6 @@ Bundle 'mileszs/ack.vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
-Bundle 'mru.vim'
 Bundle 'kien/ctrlp.vim'
 
 " Snippets
@@ -322,6 +321,11 @@ vmap <F3> <Esc>:Ack
 " folding by F4
 nnoremap <F4> za
 
+" lets try to use dropbox file as notepad
+nmap <F5> :sp ~/Dropbox/Backup/notes.md<CR>
+imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
+imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
+
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
 
@@ -330,10 +334,6 @@ nmap <leader>, :NERDTree <CR>
 
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
-
-" leader + m to MRU
-nmap <silent> <C-M> :MRU<CR>
-imap <C-M> <ESC> :MRU<CR>
 
 " CtrlP for insert mode
 imap <C-P> <ESC> :CtrlP<CR>

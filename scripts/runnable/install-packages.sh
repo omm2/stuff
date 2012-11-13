@@ -33,3 +33,4 @@ libc6-i386 \
 lib32gcc1 \
 gtk-theme-switch \
 nitrogen \
+scrot \

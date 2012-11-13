@@ -1,5 +1,5 @@
 ZSH=$HOME/.oh-my-zsh
-SECRETS=$HOME/Dropbox/backup/credentials.sh
+SECRETS=$HOME/Dropbox/Backup/credentials.sh
 
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
