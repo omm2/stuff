@@ -99,8 +99,45 @@ main_menu = awful.menu({ items = { { "awesome", awesome_menu, beautiful.awesome_
 -- Create a textclock widget
 mytextclock = awful.widget.textclock({ align = "right" })
 
+--Seperators Widget
+separator = widget({ type = "textbox" })
+separator.text  = " | "
+
 -- Create a systray
 mysystray = widget({ type = "systray" })
+
+-- Acpitool-based battery widget
+battery = widget({ type = "textbox", name = "battery", align = "right" })
+function battery_status ()
+    local output={} --output buffer
+    local fd=io.popen("acpitool -b", "r") --list present batteries
+    local line=fd:read()
+    while line do --there might be several batteries.
+        local battery_num = string.match(line, "Battery \#(%d+)")
+        local battery_load = string.match(line, " (%d*\.%d+)%%")
+        local time_rem = string.match(line, "(%d+\:%d+)\:%d+")
+        local discharging
+
+        if string.match(line, "discharging")=="discharging" then --discharging: always red
+            discharging="<span color=\"#CC7777\">"
+        elseif tonumber(battery_load)>85 then --almost charged
+            discharging="<span color=\"#77CC77\">"
+        else --charging
+            discharging="<span color=\"#CCCC77\">"
+        end
+
+        table.insert(output,discharging..battery_load.."%</span>")
+        line=fd:read() --read next line
+    end
+    return table.concat(output," ")
+end
+battery.text = " " .. battery_status() .. " "
+battery_timer=timer({timeout=30})
+battery_timer:add_signal("timeout", function()
+    battery.text = " " .. battery_status() .. " "
+end)
+battery_timer:start()
+
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -137,6 +174,9 @@ for s = 1, screen.count() do
         },
         mylayoutbox[s],
         mytextclock,
+        separator,
+        battery,
+        separator,
         s == 1 and mysystray or nil,
         layout = awful.widget.layout.horizontal.rightleft
     }
