@@ -42,3 +42,10 @@ rm -rf ~/.config/terminator
 unlink ~/.config/terminator
 echo "ln -s $ROOT/terminator/ ~/.config/terminator"
 ln -sf $ROOT/terminator/ ~/.config/terminator
+
+# terminator
+# TEST MODE
+# rm -rf ~/.config/awesome
+# unlink ~/.config/awesome
+# echo "ln -s $ROOT/awesome/ ~/.config/awesome"
+# ln -sf $ROOT/awesome/ ~/.config/awesome
