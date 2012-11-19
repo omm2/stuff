@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Ubuntu
-sudo apt-get install \
+sudo apt-get -y install \
 gmrun \
 curl \
 htop \

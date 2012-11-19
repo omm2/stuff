@@ -7,6 +7,8 @@ require("beautiful")
 -- Notification library
 require("naughty")
 
+vicious = require("vicious")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -53,24 +55,24 @@ layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.left,
+    -- awful.layout.suit.tile.bottom,
     awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
+    -- awful.layout.suit.fair.horizontal,
+    -- awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier
+    -- awful.layout.suit.max.fullscreen,
+    -- awful.layout.suit.magnifier
 }
 -- }}}
 
 -- {{{ Tags
 -- Define a tag table which will hold all screen tags.
 tags = {
-    names  = { "web", "code", "im", "music", "vlc", "torrents" },
-    layout = { layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2] }
+    names  = { "DEFAULT", "WEB", "CODE", "IM", "MEDIA", "FILES" },
+    layout = { layouts[4], layouts[3], layouts[4], layouts[2], layouts[5], layouts[1] }
 }
 
 for s = 1, screen.count() do
@@ -78,7 +80,6 @@ for s = 1, screen.count() do
     tags[s] = awful.tag(tags.names, s, tags.layout)
 end
 -- }}}
-
 
 -- {{{ Menu
 -- Create a laucher widget and a main menu
@@ -112,12 +113,13 @@ function battery_status ()
     local output={} --output buffer
     local fd=io.popen("acpitool -b", "r") --list present batteries
     local line=fd:read()
-    while line do --there might be several batteries.
-        local battery_num = string.match(line, "Battery \#(%d+)")
-        local battery_load = string.match(line, " (%d*\.%d+)%%")
-        local time_rem = string.match(line, "(%d+\:%d+)\:%d+")
-        local discharging
 
+    local battery_num = string.match(line, "Battery \#(%d+)")
+    local battery_load = string.match(line, " (%d*\.%d+)%%")
+    local time_rem = string.match(line, "(%d+\:%d+)\:%d+")
+    local discharging
+
+    if tonumber(battery_load) == 100 then
         if string.match(line, "discharging")=="discharging" then --discharging: always red
             discharging="<span color=\"#CC7777\">"
         elseif tonumber(battery_load)>85 then --almost charged
@@ -126,18 +128,33 @@ function battery_status ()
             discharging="<span color=\"#CCCC77\">"
         end
 
-        table.insert(output,discharging..battery_load.."%</span>")
-        line=fd:read() --read next line
+        table.insert(output, discharging .. battery_load .. "</span>")
     end
-    return table.concat(output," ")
+
+    return table.concat(output,"")
 end
-battery.text = " " .. battery_status() .. " "
+battery.text = battery_status()
 battery_timer=timer({timeout=30})
 battery_timer:add_signal("timeout", function()
-    battery.text = " " .. battery_status() .. " "
+    battery.text = battery_status()
 end)
 battery_timer:start()
 
+tb_moc = widget({ type = "textbox", name = "tb_moc", align = "right" })
+
+-- Keyboard layout widget
+kbdcfg = {}
+kbdcfg.cmd = "setxkbmap"
+kbdcfg.layout = { { "us", "" }, { "ru", "" } }
+kbdcfg.current = 1  -- us is our default layout
+kbdcfg.widget = widget({ type = "textbox", align = "right" })
+kbdcfg.widget.text = kbdcfg.layout[kbdcfg.current][1]
+kbdcfg.switch = function ()
+   kbdcfg.current = kbdcfg.current % #(kbdcfg.layout) + 1
+   local t = kbdcfg.layout[kbdcfg.current]
+   kbdcfg.widget.text = t[1]
+   os.execute( kbdcfg.cmd .. " " .. t[1] .. " " .. t[2] )
+end
 
 -- Create a wibox for each screen and add it
 mywibox = {}
@@ -172,10 +189,12 @@ for s = 1, screen.count() do
             mytaglist[s],
             layout = awful.widget.layout.horizontal.leftright
         },
-        mylayoutbox[s],
         mytextclock,
         separator,
         battery,
+        tb_moc,
+        separator,
+        kbdcfg.widget,
         separator,
         s == 1 and mysystray or nil,
         layout = awful.widget.layout.horizontal.rightleft
@@ -241,19 +260,25 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey, "Control" }, "n", awful.client.restore),
 
-    awful.key({ modkey }, "r", function()
-      awful.util.spawn_with_shell( "exe=`dmenu_path | dmenu -b -nf '#888888' -nb '#222222' -sf '#ffffff' -sb '#285577'` && exec $exe")
-    end)
+	awful.key({ modkey },            "r",     function ()
+		awful.util.spawn("dmenu_run -i -b -nb '" ..
+			beautiful.bg_normal .. "' -nf '" .. beautiful.fg_normal ..
+			"' -sb '" .. beautiful.bg_focus ..
+			"' -sf '" .. beautiful.fg_focus .. "'")
+	end),
+
+    awful.key({ "Mod1" }, "Shift_L", function () kbdcfg.switch() end)
 )
 
+
 clientkeys = awful.util.table.join(
-    awful.key({ modkey,           }, "f",      function (c) c.fullscreen = not c.fullscreen  end),
-    awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "r",      function (c) c:redraw()                       end),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end),
+    awful.key({ modkey,           }, "f",       function (c) c.fullscreen = not c.fullscreen  end),
+    awful.key({ modkey, "Shift"   }, "c",       function (c) c:kill()                         end),
+    awful.key({ modkey, "Control" }, "space",   awful.client.floating.toggle                     ),
+    awful.key({ modkey, "Control" }, "Return",  function (c) c:swap(awful.client.getmaster()) end),
+    awful.key({ modkey,           }, "o",       awful.client.movetoscreen                        ),
+    awful.key({ modkey, "Shift"   }, "r",       function (c) c:redraw()                       end),
+    awful.key({ modkey,           }, "t",       function (c) c.ontop = not c.ontop            end),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
@@ -318,7 +343,7 @@ root.keys(globalkeys)
 -- {{{ Rules
 awful.rules.rules = {
     -- All clients will match this rule.
-    { rule = { },
+    { rule = { size_hints_honor = false },
       properties = { border_width = beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = true,

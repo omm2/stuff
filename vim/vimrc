@@ -230,6 +230,12 @@ if has("autocmd")
   " HAML
   autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
+  " HTML
+  autocmd FileType html setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+
+  " CSS
+  autocmd FileType css setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+
   " ERB
   autocmd FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
@@ -244,11 +250,6 @@ if has("autocmd")
     au!
     autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
   augroup end " }}}
-
-  augroup css_files "{{{
-    au!
-    autocmd filetype css,less setlocal foldmethod=marker foldmarker={,}
-  augroup end "}}}
 
   augroup javascript_files "{{{
     au!
