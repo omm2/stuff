@@ -31,6 +31,7 @@ filetype off " temporary turning it off for vundle sake
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Bundler
 Bundle 'gmarik/vundle'
 
 " Colorscheme
@@ -38,16 +39,18 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'Railscasts-Theme-GUIand256color'
 
 " Coding
+BUndle 'nelstrom/vim-textobj-rubyblock' " Ruby blocks with (ar & ir)
 Bundle 'tpope/vim-rails'
 
 " Utility
 Bundle 'mattn/zencoding-vim'
+Bundle 'garbas/vim-snipmate'
 Bundle 'tpope/vim-fugitive'
 Bundle 'mileszs/ack.vim'
-Bundle 'garbas/vim-snipmate'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'AndrewRadev/splitjoin.vim' " Split or join blocks in one or multiple rows
 
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
