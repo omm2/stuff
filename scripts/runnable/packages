@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-# Ubuntu
-sudo apt-get -y install \
+echo '> Installing packages'
+
+sudo apt-get -yqq install \
 gmrun \
 curl \
 htop \
@@ -20,7 +21,7 @@ ack-grep \
 terminator \
 python-fontforge \
 wmctrl \
-parcellite \
+xclip \
 ffmpeg \
 libgconf-2-4 \
 libnss3-1d \

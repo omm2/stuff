@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "${ROOT}" ]; then ROOT="${PWD}/../.."; fi
+
+echo '> Installing monaco font'
+sudo mkdir /usr/share/fonts/truetype/custom > /dev/null 2>&1
+sudo cp $ROOT/resources/fonts/Monaco_Linux-Powerline.ttf /usr/share/fonts/truetype/custom/
+
+echo '> Rebuilding fonts cache'
+sudo fc-cache -f

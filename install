@@ -1,0 +1,27 @@
+#!/bin/bash
+
+echo ' __ _          __  __ '
+echo '/ _\ |_ _   _ / _|/ _|'
+echo '\ \| __| | | | |_| |_ '
+echo '_\ \ |_| |_| |  _|  _|'
+echo '\__/\__|\__,_|_| |_|  '
+echo ''
+
+echo "> Starting installation process"
+
+ROOT=`pwd`
+
+source scripts/runnable/packages
+source scripts/runnable/symlinks
+source scripts/runnable/post
+source scripts/runnable/monaco
+
+# TODO
+# git reset HEAD vundle
+# git submodule update
+# https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# https://linux.dropbox.com/packages/ubuntu/dropbox_1.4.0_amd64.deb
+# 
+# sudo add-apt-repository ppa:tiheum/equinox
+# sudo apt-get update
+# sudo apt-get install faenza-icon-theme

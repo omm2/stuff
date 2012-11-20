@@ -11,7 +11,7 @@ export EDITOR="vim"
 alias be="bundle exec"
 alias dspace="df -h -T"
 alias v="vim"
-alias imgur="~/Projects/stuff/scripts/bin/imgur"
+alias imgur="~/Development/madundead/stuff/scripts/bin/imgur"
 
 # Settings
 setopt autocd
