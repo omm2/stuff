@@ -1,6 +1,3 @@
-Stuff
-============================
-
 SUMMARY
 -------
 
@@ -14,16 +11,16 @@ If you're cool with it - feel free to use/modify/share contents of this repo.
 
 INSTALL
 -------
-You can install it via git:
-```bash
-git clone git@github.com:madundead/stuff.git && cd stuff && sudo ./install.sh
+You can get it via git ```git clone git@github.com:madundead/stuff.git``` or wget ```wget https://github.com/madundead/stuff/tarball/master```
+
+And and apply all the stuff to your system like this:
+
 ```
-or via curl:
-```bash
-curl -L https://github.com/madundead/stuff/tarball/master | tar -xzv && cd madundead-stuff* && sudo ./install.sh
+cd stuff
+sudo ./install.sh
 ```
 
-Or you can simply rip off parts you're insterested in from config files.
+Or you can simply rip off parts you're insterested in.
 
 CONTENTS
 --------
