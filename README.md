@@ -7,13 +7,24 @@ SUMMARY
 4. This repo is full of fuck
 
 
-If you're cool with it - feel free to use/modify/share contents of this repo.
+If you're cool with it - feel free to use, modify or share contents of this repo.
 
 INSTALL
 -------
-You can get it via git ```git clone git@github.com:madundead/stuff.git``` or wget ```wget https://github.com/madundead/stuff/tarball/master```
 
-And and apply all the stuff to your system like this:
+You can clone it via git:
+
+```
+git clone git@github.com:madundead/stuff.git
+```
+
+Or get it via wget:
+
+```
+wget https://github.com/madundead/stuff/tarball/master
+```
+
+And then apply all the stuff to your system like this:
 
 ```
 cd stuff
