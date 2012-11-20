@@ -10,11 +10,14 @@
 " amix the lucky stiff
 " http://amix.dk/vim/vimrc.html
 "
+" Yan Pritzker
+" https://github.com/skwp/dotfiles
+"
 " Colorscheme:
 " Ethan Schoonover
 " https://github.com/altercation/solarized
 "
-" Feel free to use, modify or share this file 
+" Feel free to use, modify or share this file
 
 
 " ========================================================
@@ -38,19 +41,36 @@ Bundle 'gmarik/vundle'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Railscasts-Theme-GUIand256color'
 
+
 " Coding
-BUndle 'nelstrom/vim-textobj-rubyblock' " Ruby blocks with (ar & ir)
+" Support for user-defined text objects
+Bundle 'kana/vim-textobj-user'
+" Ruby blocks with (ar & ir)
+Bundle 'nelstrom/vim-textobj-rubyblock'
+" Ruby symbols (a: & i:)
+Bundle 'bootleq/vim-textobj-rubysymbol'
+" Lot of usefull rails stuff
 Bundle 'tpope/vim-rails'
+" Provides correct js indentations
+Bundle 'pangloss/vim-javascript'
+
 
 " Utility
 Bundle 'mattn/zencoding-vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'tpope/vim-fugitive'
+" press \\ to comment
+Bundle 'tpope/vim-commentary'
+" . now repeats some plugins functionality not only native
+Bundle 'tpope/vim-repeat'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'surround.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'AndrewRadev/splitjoin.vim' " Split or join blocks in one or multiple rows
+" Split or join blocks in one or multiple rows
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'gregsexton/gitv'
+
 
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -58,11 +78,15 @@ Bundle "tomtom/tlib_vim"
 Bundle "honza/snipmate-snippets"
 Bundle "garbas/vim-snipmate"
 
+
 " Syntax highlight
 Bundle 'Markdown'
+" Markdown now understands ```
+Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'cucumber.zip'
 Bundle 'tpope/vim-haml'
 Bundle 'kchmck/vim-coffee-script'
+
 
 " Appearence
 Bundle 'xolox/vim-shell'
@@ -242,10 +266,13 @@ if has("autocmd")
   " ERB
   autocmd FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
+  augroup markdown " {{{
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+  augroup end " }}}
+
   augroup html_files "{{{
     au!
-    " TODO: make closetag here
-    " autocmd filetype html,xhtml,xml source ~/.vim/scripts/closetag.vim
     autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
   augroup end " }}}
 
@@ -359,3 +386,8 @@ map n nzz
 
 " window title is always 'VIM'
 auto BufEnter * let &titlestring = "VIM"
+
+" vim-javascript settings
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
