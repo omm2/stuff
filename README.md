@@ -47,7 +47,6 @@ CONTENTS
 
 ##### Runnable scripts
 1. [symlinks] (https://github.com/madundead/stuff/blob/master/scripts/runnable/symlinks) - links config files
-2. [monaco] (https://github.com/madundead/stuff/blob/master/scripts/runnable/monaco) - installs patched monaco font for vim
 3. [packages] (https://github.com/madundead/stuff/blob/master/scripts/runnable/packages) - apt-gets some packages
 4. [post] (https://github.com/madundead/stuff/blob/master/scripts/runnable/post) - tweaks, gotchas and all sorts of useful scripts
 

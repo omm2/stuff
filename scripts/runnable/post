@@ -3,10 +3,17 @@
 echo '> Some post-installation magic'
 
 echo '> Changing shell to zsh'
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
 
 echo '> Installing oh-my-zsh'
 curl -Ls https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh > /dev/null 2>&1
 
 echo '> Installing pip'
 curl -s https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python > /dev/null 2>&1
+
+echo '> Installing monaco font'
+sudo mkdir /usr/share/fonts/truetype/custom > /dev/null 2>&1
+sudo cp $ROOT/resources/fonts/Monaco_Linux-Powerline.ttf /usr/share/fonts/truetype/custom/
+
+echo '> Rebuilding fonts cache'
+sudo fc-cache -f
