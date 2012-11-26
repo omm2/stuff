@@ -126,7 +126,7 @@ if has('gui_running')
   set guioptions+=LlRrb                     " remove
   set guioptions-=LlRrb                     " scrollbars
   set guifont=Monaco\ for\ Powerline\ 10    " patched monaco font
-  colorscheme zmrok                         " awesome colorscheme
+  colorscheme solarized                     " awesome colorscheme
   set background=dark                       " realy nice :3
   set t_Co=256
   let g:solarized_termcolors=256
