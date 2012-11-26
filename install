@@ -14,7 +14,6 @@ ROOT=`pwd`
 source scripts/runnable/packages
 source scripts/runnable/symlinks
 source scripts/runnable/post
-source scripts/runnable/monaco
 
 # TODO
 # git reset HEAD vundle

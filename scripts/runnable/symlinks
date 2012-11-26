@@ -1,12 +1,18 @@
 #!/bin/bash
 
 if [ -z "${ROOT}" ]; then ROOT="${PWD}/../.."; fi
+echo $ROOT
 
 echo '> Applying symlinks'
 echo ''
 
 mkdir ~/.config > /dev/null 2>&1
 
+unlink ~/.Xdefaults
+echo '  xdefaults:  x/xdefaults => ~/.Xdefaults'
+ln -sf $ROOT/x/xdefaults ~/.Xdefaults
+
+ln -sf $ROOT/zsh/zshrc ~/.zshrc
 echo '  zsh:        zsh/zshrc => ~/.zshrc'
 ln -sf $ROOT/zsh/zshrc ~/.zshrc
 
@@ -36,11 +42,8 @@ unlink ~/.config/terminator
 echo '  terminator: terminator => ~/.config/terminator'
 ln -sf $ROOT/terminator ~/.config/terminator
 
-# awesome
-# TEST MODE
-# rm -rf ~/.config/awesome
-# unlink ~/.config/awesome
-# echo "ln -s $ROOT/awesome/ ~/.config/awesome"
-# ln -sf $ROOT/awesome/ ~/.config/awesome
+unlink ~/.config/awesome
+echo '  awesome:    awesome => ~/.config/awesome'
+ln -sf $ROOT/awesome ~/.config/awesome
 
 echo ''
