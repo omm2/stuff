@@ -12,6 +12,11 @@ alias be="bundle exec"
 alias dspace="df -h -T"
 alias v="vim"
 alias imgur="~/Development/madundead/stuff/scripts/bin/imgur"
+alias mountiso="~/Development/madundead/stuff/scripts/bin/mountiso"
+alias dev="cd ~/Development"
+alias stuff="cd ~/Development/madundead/stuff"
+alias mashup="cd ~/Development/madundead/mashup"
+alias fugu="cd ~/Development/madundead/fugu"
 
 # Settings
 setopt autocd
