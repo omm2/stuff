@@ -1,4 +1,4 @@
-urxvt*font:             xft:monaco:size=10
+urxvt*font:             xft:monospace:size=10
 urxvt*termName:         rxvt
 urxvt*background:       #0c0d0e
 urxvt*foreground:       #7f8f9f
@@ -71,3 +71,6 @@ xscreensaver.passwd.thermometer.background:  #0c0d0e
 xscreensaver.passwd.thermometer.width:       10
 !datestamp format--see the strftime(3) manual page for details
 xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+
+URxvt*termName:screen-256color
+URxvt*loginShell: true
