@@ -40,6 +40,7 @@ Bundle 'gmarik/vundle'
 " Colorscheme
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Railscasts-Theme-GUIand256color'
+Bundle 'flazz/vim-colorschemes'
 
 
 " Coding
@@ -73,7 +74,8 @@ Bundle 'gregsexton/gitv'
 " Gists and webapi for vim as requirement for it
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
-
+" Provides automatic closing of quotes, parenthesis, brackets, etc.,
+Bundle 'Raimondi/delimitMate'
 
 " Snippets
 Bundle "MarcWeber/vim-addon-mw-utils"
@@ -89,6 +91,7 @@ Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'cucumber.zip'
 Bundle 'tpope/vim-haml'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'skammer/vim-css-color'
 
 
 " Appearence
@@ -154,13 +157,13 @@ set laststatus=2
 set cursorline
 " number rows
 set number
-" disable welcome message 
+" disable welcome message
 set shortmess+=I
 " show matching braces
 set showmatch
 " shows when you are in insert mode
 set showmode
-" shows commands in right bottom corner 
+" shows commands in right bottom corner
 set showcmd
 " show cursor position all the tiem
 set ruler
@@ -168,12 +171,14 @@ set ruler
 set title
 " dont wrap lines
 set nowrap
-" when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen. 
+" when I scroll up or down, there are 2 lines between the line I'm on and the bottom or top of the screen.
 set scrolloff=5
 " how many tenths of a second to blink on matching brackets
 set mat=2
 " disable cursor blink
 set gcr=a:blinkon0
+" hide the mouse pointer while typing
+set mousehide
 
 " put NERDTree on the right. just because I can
 let NERDTreeWinPos = "right"
@@ -189,7 +194,7 @@ let NERDTreeDirArrows = 1
 
 " shamelessly taken from YADR dotfile repo https://github.com/skwp/dotfiles
 " stuff to ignore whent tab completing
-set wildignore=*.o,*.obj,*~ 
+set wildignore=*.o,*.obj,*~
 set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
 set wildignore+=*DS_Store*
@@ -348,9 +353,9 @@ imap <F2> <ESC> :vsplit<CR>
 vmap <F2> :vsplit<CR>
 
 " horisontal split by F3
-nmap <F3> :Ack 
-imap <F3> <Esc>:Ack 
-vmap <F3> <Esc>:Ack 
+nmap <F3> :Ack
+imap <F3> <Esc>:Ack
+vmap <F3> <Esc>:Ack
 
 " folding by F4
 nnoremap <F4> za
@@ -365,6 +370,8 @@ nmap <leader>a :%y+ <CR>
 
 " leader + , to launch NERDTree
 nmap <leader>, :NERDTree <CR>
+
+nmap <leader>g :Gitv <CR>
 
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
@@ -387,8 +394,23 @@ nmap <silent> <C-N> :silent noh<CR>
 map N Nzz
 map n nzz
 
-" window title is always 'VIM'
-auto BufEnter * let &titlestring = "VIM"
+" window title is always 'vim'
+auto BufEnter * let &titlestring = "vim"
+
+" Strip trailing whitespace
+function! <SID>StripTrailingWhitespaces()
+    " Preparation : save last search, and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    silent! call cursor(l, c)
+endfunction
+
+nnoremap <silent> <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
 
 " vim-javascript settings
 let g:html_indent_inctags = "html,body,head,tbody"
