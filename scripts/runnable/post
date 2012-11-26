@@ -6,4 +6,7 @@ echo '> Changing shell to zsh'
 chsh -s $(which zsh)
 
 echo '> Installing oh-my-zsh'
-curl -Ls https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+curl -Ls https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh > /dev/null 2>&1
+
+echo '> Installing pip'
+curl -s https://raw.github.com/pypa/pip/master/contrib/get-pip.py | sudo python > /dev/null 2>&1
