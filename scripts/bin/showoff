@@ -1,0 +1,13 @@
+#!/bin/bash
+
+t=`mktemp`
+
+eval "
+scrot $t.png
+curl -s -F 'image=@$t.png' -F 'key=$KEY_IMGUR' http://api.imgur.com/2/upload.xml | \
+grep -Eo '<[a-z_]+>http[^<]+' | \
+sed -n '1p' | \
+sed -e 's/<original>//g' | \
+xclip -selection clipboard | \
+notify-send 'Showoff' \"Screenshot uploaded: `xclip -o -selection clipboard`\"
+"
