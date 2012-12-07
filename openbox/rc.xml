@@ -245,12 +245,12 @@
     </keybind>
     <keybind key="Print">
       <action name="Execute">
-        <execute>gnome-screenshot</execute>
+        <execute>scrot</execute>
       </action>
     </keybind>
     <keybind key="A-Print">
       <action name="Execute">
-        <execute>gnome-screenshot -w</execute>
+        <execute>scrot -s</execute>
       </action>
     </keybind>
     <!-- Keybindings for window switching -->
@@ -285,6 +285,11 @@
     <keybind key="W-W">
       <action name="Execute">
         <execute>x-www-browser</execute>
+      </action>
+    </keybind>
+    <keybind key="W-Print">
+      <action name="Execute">
+        <execute>/home/madundead/Development/madundead/stuff/scripts/bin/showoff</execute>
       </action>
     </keybind>
     <keybind key="W-F">

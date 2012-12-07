@@ -35,3 +35,4 @@ lib32gcc1 \
 gtk-theme-switch \
 nitrogen \
 scrot \
+gtk2-engines-pixbuf \

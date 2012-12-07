@@ -18,6 +18,7 @@ alias dev="cd ~/Development"
 alias stuff="cd ~/Development/madundead/stuff"
 alias mashup="cd ~/Development/madundead/mashup"
 alias fugu="cd ~/Development/madundead/fugu"
+alias open="google-chrome"
 
 # Settings
 setopt autocd
