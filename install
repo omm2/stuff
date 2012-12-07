@@ -20,7 +20,14 @@ source scripts/runnable/post
 # git submodule update
 # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # https://linux.dropbox.com/packages/ubuntu/dropbox_1.4.0_amd64.deb
-# 
+#
 # sudo add-apt-repository ppa:tiheum/equinox
 # sudo apt-get update
 # sudo apt-get install faenza-icon-theme
+#
+# I need a way to install my default/useful/favorite rubygems in default gemset automaticaly
+# pry, pry-doc
+# logger, logger-colors
+# rails
+# rspec, cucumber
+# mechanize
