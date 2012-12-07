@@ -1,7 +1,6 @@
 #!/bin/bash
 
 if [ -z "${ROOT}" ]; then ROOT="${PWD}/../.."; fi
-echo $ROOT
 
 echo '> Applying symlinks'
 echo ''
