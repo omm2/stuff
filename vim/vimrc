@@ -207,7 +207,7 @@ set wildignore+=*.png,*.jpg,*.gif
 " W invokes sudo
 command W w !sudo tee % > /dev/null
 " copying to clipboard
-set clipboard=autoselect,unnamed,exclude:cons\|linux
+set clipboard=unnamed
 " dunno
 set matchtime=2
 " force backspace to behave like in any other editor
@@ -393,6 +393,14 @@ nmap <silent> <C-N> :silent noh<CR>
 " search will center on the line it's found in.
 map N Nzz
 map n nzz
+
+" Hard to type things
+imap -> →
+imap <- ←
+imap ^^ ↑
+imap VV ↓
+imap ^a λ
+
 
 " window title is always 'vim'
 auto BufEnter * let &titlestring = "vim"
