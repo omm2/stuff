@@ -9,5 +9,5 @@ grep -Eo '<[a-z_]+>http[^<]+' | \
 sed -n '1p' | \
 sed -e 's/<original>//g' | \
 xclip -selection clipboard && \
-notify-send 'Showoff' \"Screenshot uploaded: `xclip -o -selection clipboard`\"
+notify-send 'Showoff' \"Upload finished.\"
 "
