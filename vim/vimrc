@@ -400,8 +400,8 @@ nnoremap yy Y
 nnoremap Y y$
 
 " Hard to type things
-imap -> →
-imap <- ←
+imap >> →
+imap << ←
 imap ^^ ↑
 imap VV ↓
 imap ^a λ

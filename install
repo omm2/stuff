@@ -30,6 +30,9 @@ source scripts/runnable/post
 # sudo add-apt-repository ppa:tiheum/equinox
 # sudo apt-get update
 # sudo apt-get install faenza-icon-theme
+
+# git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+# git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 #
 # I need a way to install my default/useful/favorite rubygems in default gemset automaticaly
 # pry, pry-doc
@@ -37,3 +40,4 @@ source scripts/runnable/post
 # rails
 # rspec, cucumber
 # mechanize
+# boom
