@@ -34,7 +34,7 @@ wallpaper_dir = os.getenv("HOME") .. "/Dropbox/Wallpapers/" -- wallpaper dir
 --- arabic, chinese, {east|persian}_arabic, roman, thai, random
 taglist_numbers = "madundead" -- we support arabic (1,2,3...),
 
-date_format = "%m/%d/%Y %l:%M" -- refer to http://en.wikipedia.org/wiki/Date_(Unix) specifiers
+date_format = "%b %d %l:%M" -- refer to http://en.wikipedia.org/wiki/Date_(Unix) specifiers
 
 require_safe('personal')
 
