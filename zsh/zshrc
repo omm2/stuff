@@ -18,7 +18,7 @@ alias dev="cd ~/Development"
 alias stuff="cd ~/Development/madundead/stuff"
 alias mashup="cd ~/Development/madundead/mashup"
 alias fugu="cd ~/Development/madundead/fugu"
-alias open="google-chrome"
+alias open="gnome-open"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -36,11 +36,11 @@ source $SECRETS
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # Load RVM function
-
 # Customize to your needs...
-export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/home/madundead/.rvm/bin
+export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/.rbenv/bin
 
+# Rbenv
+eval "$(rbenv init -)"
 
 # Shamelessly taken from here:
 # https://github.com/paulmillr/dotfiles
