@@ -18,7 +18,7 @@ alias dev="cd ~/Development"
 alias stuff="cd ~/Development/madundead/stuff"
 alias mashup="cd ~/Development/madundead/mashup"
 alias fugu="cd ~/Development/madundead/fugu"
-alias open="gnome-open"
+alias open="x-www-browser"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
@@ -38,9 +38,6 @@ unsetopt correct_all
 
 # Customize to your needs...
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/.rbenv/bin
-
-# Rbenv
-eval "$(rbenv init -)"
 
 # Shamelessly taken from here:
 # https://github.com/paulmillr/dotfiles

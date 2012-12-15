@@ -11,9 +11,13 @@ unlink ~/.Xdefaults
 echo '  xdefaults:  x/xdefaults => ~/.Xdefaults'
 ln -sf $ROOT/x/xdefaults ~/.Xdefaults
 
-ln -sf $ROOT/zsh/zshrc ~/.zshrc
+unlink ~/.zshrc
 echo '  zsh:        zsh/zshrc => ~/.zshrc'
 ln -sf $ROOT/zsh/zshrc ~/.zshrc
+
+unlink ~/.bash_profile
+echo '  profile:    zsh/bash_profile => ~/.bash_profile'
+ln -sf $ROOT/zsh/bash_profile ~/.bash_profile
 
 echo '  git:        git/gitconfig => ~/.gitconfig'
 ln -sf $ROOT/git/gitconfig ~/.gitconfig

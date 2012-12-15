@@ -30,7 +30,9 @@ source scripts/runnable/post
 # sudo add-apt-repository ppa:tiheum/equinox
 # sudo apt-get update
 # sudo apt-get install faenza-icon-theme
-
+#
+# sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
+#
 # git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
 # git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 #
