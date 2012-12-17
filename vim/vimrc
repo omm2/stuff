@@ -91,7 +91,7 @@ Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'cucumber.zip'
 Bundle 'tpope/vim-haml'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'skammer/vim-css-color'
+" Bundle 'skammer/vim-css-color'
 
 
 " Appearence
@@ -295,6 +295,7 @@ if has("autocmd")
   augroup javascript_files "{{{
     au!
     au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
+    au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
   augroup end "}}}
 endif
 
@@ -351,14 +352,14 @@ imap <F1> <ESC> :tabnew<CR>
 vmap <F1> :tabnew<CR>
 
 " vertical split by F2
-nmap <silent> <F2> :vsplit<CR>
-imap <F2> <ESC> :vsplit<CR>
-vmap <F2> :vsplit<CR>
+" nmap <silent> <F2> :vsplit<CR>
+" imap <F2> <ESC> :vsplit<CR>
+" vmap <F2> :vsplit<CR>
 
 " horisontal split by F3
-nmap <F3> :Ack
-imap <F3> <Esc>:Ack
-vmap <F3> <Esc>:Ack
+nmap <F3> :Ack 
+imap <F3> <Esc>:Ack 
+vmap <F3> <Esc>:Ack 
 
 " folding by F4
 nnoremap <F4> za
@@ -410,6 +411,8 @@ map n nzz
 nnoremap yy Y
 " Y to yank til the end of line
 nnoremap Y y$
+
+nnoremap <silent> vv <C-w>v
 
 " Hard to type things
 imap >> →
