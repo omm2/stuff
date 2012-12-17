@@ -285,6 +285,7 @@ if has("autocmd")
     au FileType ruby,eruby let g:rubycomplete_rails = 1
     au FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
     au FileType ruby,eruby inoremap <c-space> <c-x><c-o>
+    au FileType ruby,eruby inoremap <Nul> <c-x><c-o>
   augroup end " }}}
 
   augroup javascript_files "{{{
@@ -300,7 +301,7 @@ endif
 " ========================================================
 
 " make p in visual mode replace the selected text with the yank register
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+xnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
 
 " C-Space for autocomplete
