@@ -20,6 +20,12 @@ alias mashup="cd ~/Development/madundead/mashup"
 alias fugu="cd ~/Development/madundead/fugu"
 alias open="x-www-browser"
 
+# Important aliases
+alias gimmeh='touch'
+alias byes='exit'
+alias cya='reboot'
+alias kthxbai='halt'
+
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
   alias "$method"="lwp-request -m '$method'"
@@ -30,7 +36,7 @@ done
 setopt autocd
 
 # Plugins
-plugins=(git nyan)
+plugins=(git coffee bundler)
 
 source $SECRETS
 source $ZSH/oh-my-zsh.sh
@@ -38,6 +44,12 @@ unsetopt correct_all
 
 # Customize to your needs...
 export PATH=/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:$HOME/.rbenv/bin
+
+# Rbenv
+eval "$(rbenv init -)"
+
+# Git <3 Hub
+# eval "$(hub alias -s)"
 
 # Shamelessly taken from here:
 # https://github.com/paulmillr/dotfiles
