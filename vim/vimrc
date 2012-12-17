@@ -25,78 +25,7 @@
 " ========================================================
 
 " turn off vi-compatible mode
-if &compatible
-  set nocompatible
-endif
-
-filetype off " temporary turning it off for vundle sake
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Bundler
-Bundle 'gmarik/vundle'
-
-" Colorscheme
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Railscasts-Theme-GUIand256color'
-Bundle 'flazz/vim-colorschemes'
-
-
-" Coding
-" Support for user-defined text objects
-Bundle 'kana/vim-textobj-user'
-" Ruby blocks with (ar & ir)
-Bundle 'nelstrom/vim-textobj-rubyblock'
-" Ruby symbols (a: & i:)
-Bundle 'bootleq/vim-textobj-rubysymbol'
-" Lot of usefull rails stuff
-Bundle 'tpope/vim-rails'
-" Provides correct js indentations
-Bundle 'pangloss/vim-javascript'
-
-
-" Utility
-Bundle 'mattn/zencoding-vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'tpope/vim-fugitive'
-" press \\ to comment
-Bundle 'tpope/vim-commentary'
-" . now repeats some plugins functionality not only native
-Bundle 'tpope/vim-repeat'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'surround.vim'
-Bundle 'kien/ctrlp.vim'
-" Split or join blocks in one or multiple rows
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'gregsexton/gitv'
-" Gists and webapi for vim as requirement for it
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
-" Provides automatic closing of quotes, parenthesis, brackets, etc.,
-Bundle 'Raimondi/delimitMate'
-
-" Snippets
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle "tomtom/tlib_vim"
-Bundle "honza/snipmate-snippets"
-Bundle "garbas/vim-snipmate"
-
-
-" Syntax highlight
-Bundle 'Markdown'
-" Markdown now understands ```
-Bundle 'jtratner/vim-flavored-markdown'
-Bundle 'cucumber.zip'
-Bundle 'tpope/vim-haml'
-Bundle 'kchmck/vim-coffee-script'
-" Bundle 'skammer/vim-css-color'
-
-
-" Appearence
-Bundle 'xolox/vim-shell'
-Bundle 'Lokaltog/vim-powerline'
+set nocompatible
 
 " includes ftplugin.vim which is responsible for filetype detection
 filetype plugin indent on
@@ -117,11 +46,94 @@ let g:mapleader=","
 
 
 " ========================================================
+" -> Vim Bundler
+" ========================================================
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" ======== Vundle  =======================================
+
+Bundle 'gmarik/vundle'
+
+" ======== Colorscheme  ==================================
+
+Bundle 'altercation/vim-colors-solarized'
+
+" ======== Coding  =======================================
+
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'bootleq/vim-textobj-rubysymbol'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'pangloss/vim-javascript'
+
+" ======== Utility  ======================================
+
+Bundle 'mattn/zencoding-vim'
+Bundle 'garbas/vim-snipmate'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'surround.vim'
+Bundle 'kien/ctrlp.vim'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'gregsexton/gitv'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'Raimondi/delimitMate'
+
+" ======== Snippets  =====================================
+
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
+
+" ======== Syntax Highlighting  ==========================
+
+Bundle 'Markdown'
+Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'cucumber.zip'
+Bundle 'tpope/vim-haml'
+Bundle 'kchmck/vim-coffee-script'
+
+" ======== Appearence ===================================
+
+Bundle 'Markdown'
+Bundle 'xolox/vim-shell'
+Bundle 'madundead/vim-powerline'
+
+
+" ========================================================
+" -> Plugin settings
+" ========================================================
+
+let NERDTreeWinPos = "right"   " put NERDTree on the right. just because I can
+let NERDTreeMinimalUI = 1      " remove 'press ? for help' and .. (up on one dir)
+let NERDTreeDirArrows = 1      " replace ugly + with fancy arrows
+
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1  = "inc"
+
+let g:gist_clip_command    = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+let g:gist_post_private    = 1
+let g:gist_show_privates   = 1
+
+let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
+
+
+" ========================================================
 " -> Colors & Fonts
 " ========================================================
 
-colorscheme solarized                     " awesome colorscheme
-set background=dark                       " realy nice :3
+colorscheme solarized                       " awesome colorscheme
+set background=dark                         " realy nice :3
 
 if has('gui_running')
   set guioptions-=T                         " remove toolbar
@@ -131,16 +143,19 @@ if has('gui_running')
   set guifont=Monaco\ for\ Powerline\ 10    " patched monaco font
   set t_Co=256
   let g:solarized_termcolors=256
-  let g:Powerline_symbols='fancy'
-  " TODO make this work
-  " let g:Powerline_theme='skwp'
-  " let g:Powerline_colorscheme='skwp'
+  let g:Powerline_theme='solarized256'
+  let g:Powerline_colorscheme='solarized256'
 else
   set t_Co=16
   let g:solarized_termcolors=16
   let g:solarized_visibility="high"
   let g:solarized_contrast="high"
+  let g:Powerline_theme='solarized16'
+  let g:Powerline_colorscheme='solarized16'
 endif
+
+let g:Powerline_symbols='fancy'
+
 
 " ========================================================
 " -> User Interface
@@ -182,13 +197,6 @@ set mat=2
 set gcr=a:blinkon0
 " hide the mouse pointer while typing
 set mousehide
-
-" put NERDTree on the right. just because I can
-let NERDTreeWinPos = "right"
-" remove 'press ? for help' and .. (up on one dir)
-let NERDTreeMinimalUI = 1
-" replace ugly + with fancy arrows
-let NERDTreeDirArrows = 1
 
 
 " ========================================================
@@ -248,34 +256,11 @@ set shiftwidth=4
 " ========================================================
 
 if has("autocmd")
-  " Filetype matches:
-  " *.phtml => html
-  autocmd BufNewFile,BufRead *.phtml set filetype=html
-
-  " *.erb => html
-  autocmd BufNewFile,BufRead *.erb set filetype=eruby
-
-  " *.haml => haml
-  autocmd BufNewFile,BufRead *.haml set filetype=haml
-
-  " Gemfile => ruby
-  autocmd BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
-
-  " Filetype rules:
   " YAML
   autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-  " HAML
-  autocmd FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-
-  " HTML
-  autocmd FileType html setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-
   " CSS
   autocmd FileType css setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-
-  " ERB
-  autocmd FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
   augroup markdown " {{{
     au!
@@ -284,12 +269,22 @@ if has("autocmd")
 
   augroup html_files "{{{
     au!
-    autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+    au BufNewFile,BufRead *.phtml set filetype=html
+    au BufNewFile,BufRead *.erb set filetype=eruby
+    au FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+    au FileType html setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+    au FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
   augroup end " }}}
 
   augroup ruby_files "{{{
     au!
-    autocmd filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+    au BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
+    au filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+    au FileType ruby,eruby set omnifunc=rubycomplete#Complete
+    au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+    au FileType ruby,eruby let g:rubycomplete_rails = 1
+    au FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+    au FileType ruby,eruby inoremap <c-space> <c-x><c-o>
   augroup end " }}}
 
   augroup javascript_files "{{{
@@ -307,12 +302,6 @@ endif
 " make p in visual mode replace the selected text with the yank register
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
-" ack
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
-
-" to save session
-" autocmd VIMEnter * if !argc() | :source ~/.session.vim | endif
-" autocmd VIMLeave * :mksession! ~/.session.vim
 
 " C-Space for autocomplete
 if has("gui")
@@ -443,15 +432,3 @@ nnoremap <silent> <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
 " Edit/Reload Vimrc
 map <silent> <leader>ev :edit ~/.vimrc<CR>
 map <silent> <leader>sv :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
-
-
-" vim-javascript settings
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
-" gist clipboard
-let g:gist_clip_command = 'xclip -selection clipboard'
-let g:gist_detect_filetype = 1
-let g:gist_post_private = 1
-let g:gist_show_privates = 1
