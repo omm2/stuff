@@ -120,14 +120,15 @@ let g:mapleader=","
 " -> Colors & Fonts
 " ========================================================
 
+colorscheme solarized                     " awesome colorscheme
+set background=dark                       " realy nice :3
+
 if has('gui_running')
   set guioptions-=T                         " remove toolbar
   set guioptions-=m                         " remove menubar
   set guioptions+=LlRrb                     " remove
   set guioptions-=LlRrb                     " scrollbars
   set guifont=Monaco\ for\ Powerline\ 10    " patched monaco font
-  colorscheme solarized                     " awesome colorscheme
-  set background=dark                       " realy nice :3
   set t_Co=256
   let g:solarized_termcolors=256
   let g:Powerline_symbols='fancy'
@@ -135,8 +136,10 @@ if has('gui_running')
   " let g:Powerline_theme='skwp'
   " let g:Powerline_colorscheme='skwp'
 else
-  set term=gnome-256color
-  colorscheme railscasts
+  set t_Co=16
+  let g:solarized_termcolors=16
+  let g:solarized_visibility="high"
+  let g:solarized_contrast="high"
 endif
 
 " ========================================================
@@ -371,6 +374,10 @@ nmap <leader>a :%y+ <CR>
 " leader + , to launch NERDTree
 nmap <leader>, :NERDTree <CR>
 
+" hide matches on <leader>space
+nnoremap <leader><space> :nohlsearch<cr>
+
+
 nmap <leader>g :Gitv <CR>
 
 " Paste from clipboard
@@ -429,6 +436,11 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 nnoremap <silent> <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
+
+" Edit/Reload Vimrc
+map <silent> <leader>ev :edit ~/.vimrc<CR>
+map <silent> <leader>sv :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
 
 " vim-javascript settings
 let g:html_indent_inctags = "html,body,head,tbody"
