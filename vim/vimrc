@@ -373,6 +373,11 @@ nmap <leader>, :NERDTree <CR>
 
 nmap <leader>g :Gitv <CR>
 
+" Paste from clipboard
+map <leader>p "+p
+map <leader>y "+y
+
+
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
 
