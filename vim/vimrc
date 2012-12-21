@@ -127,6 +127,9 @@ let g:gist_show_privates   = 1
 
 let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
 
+" fix for Ack.vim bleeding its output into host terminal
+let &shellpipe="&>"
+
 
 " ========================================================
 " -> Colors & Fonts
@@ -346,7 +349,7 @@ vmap <F1> :tabnew<CR>
 " imap <F2> <ESC> :vsplit<CR>
 " vmap <F2> :vsplit<CR>
 
-" horisontal split by F3
+" Ack search by F3
 nmap <F3> :Ack 
 imap <F3> <Esc>:Ack 
 vmap <F3> <Esc>:Ack 

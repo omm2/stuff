@@ -1,5 +1,0 @@
-# Rbenv
-eval "$(rbenv init -)"
-
-# Git <3 Hub
-eval "$(hub alias -s)"
