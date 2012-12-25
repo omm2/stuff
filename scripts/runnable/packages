@@ -36,3 +36,13 @@ gtk-theme-switch \
 nitrogen \
 scrot \
 gtk2-engines-pixbuf \
+libc6-dev \
+libmysql++-dev \
+libsqlite3-dev \
+make \
+build-essential \
+libssl-dev \
+libreadline6-dev \
+zlib1g-dev \
+libyaml-dev \
+autoconf \

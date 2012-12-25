@@ -17,7 +17,7 @@ ln -sf $ROOT/zsh/zshrc ~/.zshrc
 
 unlink ~/.zlogin
 echo '  zlogin:     zsh/zlogin => ~/.zlogin'
-ln -sf $ROOT/zsh/zshrc ~/.zshrc
+ln -sf $ROOT/zsh/zlogin ~/.zlogin
 
 unlink ~/.bash_profile
 echo '  profile:    zsh/bash_profile => ~/.bash_profile'
