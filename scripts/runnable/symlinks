@@ -29,7 +29,7 @@ unlink ~/.vim
 echo '  vim:        vim/vimfiles => ~/.vim'
 ln -sf $ROOT/vim/vimfiles ~/.vim
 
-unlink ~/.resources 
+unlink ~/.resources
 echo '  resources:  resources => ~/.resources'
 ln -sf $ROOT/resources ~/.resources
 
@@ -48,5 +48,12 @@ ln -sf $ROOT/terminator ~/.config/terminator
 unlink ~/.config/awesome
 echo '  awesome:    awesome => ~/.config/awesome'
 ln -sf $ROOT/awesome ~/.config/awesome
+
+unlink ~/.tmux.conf
+unlink ~/.tmux-solarized.conf
+echo '  tmux:       tmux.conf => ~/.tmux.conf'
+echo '  tmux-slrzd: tmux-solarized.conf => ~/.tmux-solarized.conf'
+ln -sf $ROOT/tmux/tmux.conf ~/.tmux.conf
+ln -sf $ROOT/tmux/tmux-solarized ~/.config/.tmux-solarized.conf
 
 echo ''
