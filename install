@@ -33,9 +33,6 @@ source scripts/runnable/post
 #
 # sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
 #
-# git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-# git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-#
 # I need a way to install my default/useful/favorite rubygems in default gemset automaticaly
 # pry, pry-doc
 # logger, logger-colors

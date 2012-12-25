@@ -5,6 +5,15 @@ echo '> Some post-installation magic'
 echo '> Changing shell to zsh'
 sudo chsh -s $(which zsh)
 
+echo '> Installing vundle'
+git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+
+echo '> Installing rbenv & ruby-build'
+git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
+git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+cd ~/.rbenv/plugins/ruby-build
+./install.sh
+
 echo '> Installing oh-my-zsh'
 curl -Ls https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh > /dev/null 2>&1
 
