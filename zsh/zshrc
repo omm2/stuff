@@ -73,3 +73,5 @@ function ram() {
     fi
   fi
 }
+
+. /home/madundead/Development/madundead/stuff/scripts/bin/z
