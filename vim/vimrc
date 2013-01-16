@@ -407,13 +407,6 @@ nnoremap Y y$
 
 nnoremap <silent> vv <C-w>v
 
-" Hard to type things
-imap >> →
-imap << ←
-imap ^^ ↑
-imap VV ↓
-imap ^a λ
-
 
 " window title is always 'vim'
 auto BufEnter * let &titlestring = "vim"
