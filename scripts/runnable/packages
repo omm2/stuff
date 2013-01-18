@@ -46,3 +46,4 @@ libreadline6-dev \
 zlib1g-dev \
 libyaml-dev \
 autoconf \
+tree \
