@@ -29,6 +29,9 @@ ln -sf $ROOT/git/gitconfig ~/.gitconfig
 echo '  vimrc:      vim/vimrc => ~/.vimrc'
 ln -sf $ROOT/vim/vimrc ~/.vimrc
 
+echo '  gemrc:      ruby/gemrc => ~/.gemrc'
+ln -sf $ROOT/ruby/gemrc ~/.gemrc
+
 unlink ~/.vim
 echo '  vim:        vim/vimfiles => ~/.vim'
 ln -sf $ROOT/vim/vimfiles ~/.vim
