@@ -30,6 +30,9 @@ set nocompatible
 " includes ftplugin.vim which is responsible for filetype detection
 filetype plugin indent on
 
+" default indentation rules
+autocmd BufEnter *.c,*.cpp,*.java,*.php,*.html,*.erb,*.css,*.scss,*.sass,*.js,*.coffee,*.yml,*.sh,*.rake,*.feature,*.json,*.md,*.mdown,*.ru,*.sql,*.txt,*.xml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 " encoding
 set encoding=utf-8
 set fileencoding=utf-8
@@ -68,6 +71,7 @@ Bundle 'bootleq/vim-textobj-rubysymbol'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'pangloss/vim-javascript'
+Bundle 'othree/html5.vim'
 
 " ======== Utility  ======================================
 
@@ -85,6 +89,7 @@ Bundle 'gregsexton/gitv'
 Bundle 'mattn/webapi-vim'
 Bundle 'mattn/gist-vim'
 Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-easymotion'
 
 " ======== Snippets  =====================================
 
@@ -281,8 +286,8 @@ if has("autocmd")
 
   augroup ruby_files "{{{
     au!
-    au BufNewFile,BufRead Gemfile,Vagrantfile setlocal filetype=ruby
-    au filetype ruby setlocal expandtab shiftwidth=2 tabstop=2 softtabstop=2
+    au BufNewFile,BufRead Capfile,Gemfile,Vagrantfile setlocal filetype=ruby
+    au filetype ruby setlocal autoindent expandtab shiftwidth=2 tabstop=2 softtabstop=2
     au FileType ruby,eruby set omnifunc=rubycomplete#Complete
     au FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
     au FileType ruby,eruby let g:rubycomplete_rails = 1
@@ -366,7 +371,7 @@ imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
 nmap <leader>a :%y+ <CR>
 
 " leader + , to launch NERDTree
-nmap <leader>, :NERDTree <CR>
+nmap <leader>n :NERDTree <CR>
 
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
@@ -406,7 +411,6 @@ nnoremap yy Y
 nnoremap Y y$
 
 nnoremap <silent> vv <C-w>v
-
 
 " window title is always 'vim'
 auto BufEnter * let &titlestring = "vim"
