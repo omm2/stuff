@@ -1,58 +1,58 @@
 [user]
-	name = Konstantin Bukley
-	email = madundead@gmail.com
+  name = Konstantin Bukley
+  email = madundead@gmail.com
 
 [color]
-	diff = auto
-	status = auto
-	branch = auto
-	ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  ui = auto
 
 [core]
-	editor = vim
-	pager = less -R
+  editor = vim
+  pager = less -R
 
 [alias]
-	a = add
-	b = branch
-	c = commit -m
-	d = diff
-	f = fetch
-	g = grep
-	l = log
-	m = merge
-	co = checkout
-	p = pull
-	r = remote
-	s = status
+  a = add
+  b = branch
+  c = commit -m
+  d = diff
+  f = fetch
+  g = grep
+  l = log
+  m = merge
+  co = checkout
+  p = pull
+  r = remote
+  s = status
 
-	st = status -sb
+  st = status -sb
 
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-	lc = log ORIG_HEAD.. --stat --no-merges
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lc = log ORIG_HEAD.. --stat --no-merges
 
-	# from https://git.wiki.kernel.org/index.php/Aliases
-	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
-	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
-	who = shortlog -s --
+  # from https://git.wiki.kernel.org/index.php/Aliases
+  whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+  whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+  who = shortlog -s --
 
-	# forced synchro
-	get = !git pull && git submodule update --init --recursive
-	put = !git commit -am "$1" && git push
+  # forced synchro
+  get = !git pull && git submodule update --init --recursive
+  put = !git commit -am "$1" && git push
 
-	# undo aliases
-	undo = !git reset --hard
-	undoclean = !git reset --hard && git clean -fd
-	uncommit = !git reset --soft HEAD^
-	unadd = !git reset HEAD
-	unstage = !git reset HEAD
+  # undo aliases
+  undo = !git reset --hard
+  undoclean = !git reset --hard && git clean -fd
+  uncommit = !git reset --soft HEAD^
+  unadd = !git reset HEAD
+  unstage = !git reset HEAD
 
-	# awesome shit
-	# Paul Engemann – Push It To The Limit
-	epic-push = !mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null & git push
+  # awesome shit
+  # Paul Engemann – Push It To The Limit
+  epic-push = !mpg123 -q ~/.resources/sounds/pitl.mp3 > /dev/null & git push
 
 [push]
-	default = current
+  default = current
 
 [github]
-	user = madundead
+  user = madundead
