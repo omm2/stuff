@@ -48,10 +48,6 @@ unlink ~/.config/tint2
 echo '  tint2:      tint2 => ~/.config/tint2'
 ln -sf $ROOT/tint2 ~/.config/tint2
 
-unlink ~/.config/terminator
-echo '  terminator: terminator => ~/.config/terminator'
-ln -sf $ROOT/terminator ~/.config/terminator
-
 unlink ~/.config/awesome
 echo '  awesome:    awesome => ~/.config/awesome'
 ln -sf $ROOT/awesome ~/.config/awesome
