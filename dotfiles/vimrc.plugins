@@ -1,0 +1,61 @@
+set nocompatible
+" ========================================================
+" -> Vim Bundler
+" ========================================================
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" ======== Vundle  =======================================
+
+Bundle 'gmarik/vundle'
+
+" ======== Coding  =======================================
+
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'kana/vim-textobj-user'
+Bundle 'nelstrom/vim-textobj-rubyblock'
+Bundle 'bootleq/vim-textobj-rubysymbol'
+
+Bundle 'pangloss/vim-javascript'
+Bundle 'othree/html5.vim'
+Bundle 'jtratner/vim-flavored-markdown'
+Bundle 'kchmck/vim-coffee-script'
+
+" ======== Utility  ======================================
+
+Bundle 'mattn/zencoding-vim'
+Bundle 'mileszs/ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'kien/ctrlp.vim'
+Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'gregsexton/gitv'
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+Bundle 'Raimondi/delimitMate'
+Bundle 'Lokaltog/vim-easymotion'
+
+" ======== Snippets  =====================================
+
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle "tomtom/tlib_vim"
+Bundle "honza/snipmate-snippets"
+Bundle "garbas/vim-snipmate"
+
+" ======== Appearence ===================================
+
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'madundead/vim-powerline'
+Bundle 'vim-scripts/Tab-Name'
+
+" ======== tpope <3  ====================================
+Bundle 'tpope/vim-cucumber'
+Bundle 'tpope/vim-endwise'
+Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-haml'
+Bundle 'tpope/vim-markdown'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-repeat'
+Bundle 'tpope/vim-git'
