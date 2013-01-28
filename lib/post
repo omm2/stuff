@@ -21,7 +21,8 @@ if [ -d "$HOME/.vim/bundle/vundle" ]; then
 else
   e_arrow 'Installing vundle'
   mkdir ~/.vim/bundle/vundle -p
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  git clone -q git://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  vim -u "~/.vimrc.plugins" -c BundleInstall -c q -c q
 fi
 
 
@@ -32,8 +33,8 @@ if [ -d "$HOME/.rbenv" ]; then
   e_already 'rbenv'
 else
   e_arrow 'Installing rbenv'
-  git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
-  git clone git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  git clone -q git://github.com/sstephenson/rbenv.git ~/.rbenv
+  git clone -q git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
   cd ~/.rbenv/plugins/ruby-build
   ./install.sh
   sudo chown madundead:madundead ~/.rbenv -R

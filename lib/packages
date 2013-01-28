@@ -2,6 +2,7 @@
 
 e_arrow 'Installing packages'
 
+sudo apt-get -qq update
 sudo apt-get -qq install \
 gmrun \
 curl \
