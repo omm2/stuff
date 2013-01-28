@@ -75,4 +75,14 @@ function ram() {
   fi
 }
 
-. /home/madundead/Development/madundead/stuff/scripts/bin/z
+# Run Sublime Text unlinked from terminal session in Linux and Darwin
+# https://coderwall.com/p/iuxapa
+if [[ $('uname') == 'Linux' ]]; then
+  runst() { nohup /home/madundead/.subl/sublime_text $@ > /dev/null & }
+  alias subl=runst
+elif  [[ $('uname') == 'Darwin' ]]; then
+  alias st='open -a /Applications/Sublime\ Text\ 2.app'
+fi
+
+# z - awesome shit!
+. ~/.resources/bin/z

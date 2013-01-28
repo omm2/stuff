@@ -1,13 +1,34 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-echo ' __ _          __  __ '
-echo '/ _\ |_ _   _ / _|/ _|'
-echo '\ \| __| | | | |_| |_ '
-echo '_\ \ |_| |_| |  _|  _|'
-echo '\__/\__|\__,_|_| |_|  '
+source lib/util
+
+echo '   __ _          __  __ '
+echo '  / _\ |_ _   _ / _|/ _|'
+echo '  \ \| __| | | | |_| |_ '
+echo '  _\ \ |_| |_| |  _|  _|'
+echo '  \__/\__|\__,_|_| |_|  '
 echo ''
 
-echo "> Starting installation process"
+# TODO: decide here on which machine we are running
+# Possible options
+#  1. Ubuntu server (only install dotfiles)
+#  2. Ubuntu desktop (dotfiles + gui packages and shit)
+#  3. Mac (mac shit)
+
+# TODO:
+# 1. consider using vundle with submodules
+# 2. automatic dropbox installation
+# 3. faenza-icons
+# 4. flags for partial installation --full, --compact
+#  * ruby
+#  * gems:
+#    pry pry-doc logger logger-colors rails
+#    rspec cucumber mechanize boom
+
+# TODO:
+# Optional WM installation
+
+e_arrow "Starting installation process"
 
 # Ask for the administrator password upfront
 sudo -v
@@ -15,29 +36,8 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `install` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
-ROOT=`pwd`
+source lib/packages
+source lib/symlinks
+source lib/post
 
-source scripts/runnable/packages
-source scripts/runnable/symlinks
-source scripts/runnable/post
-
-# TODO
-# git reset HEAD vundle
-# git submodule update
-# https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-# https://linux.dropbox.com/packages/ubuntu/dropbox_1.4.0_amd64.deb
-#
-# sudo add-apt-repository ppa:tiheum/equinox
-# sudo apt-get update
-# sudo apt-get install faenza-icon-theme
-#
-# sudo curl http://defunkt.io/hub/standalone -sLo /usr/bin/hub && sudo chmod +x /usr/bin/hub
-#
-# I need a way to install my default/useful/favorite rubygems in default gemset automaticaly
-# pry, pry-doc
-# logger, logger-colors
-# rails
-# rspec, cucumber
-# mechanize
-# boom
-# hub
+e_success "All done!"

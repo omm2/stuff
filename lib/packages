@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo '> Installing packages'
+e_arrow 'Installing packages'
 
-sudo apt-get -yqq install \
+sudo apt-get -qq install \
 gmrun \
 curl \
 htop \
@@ -23,15 +23,9 @@ python-fontforge \
 wmctrl \
 xclip \
 ffmpeg \
-libgconf-2-4 \
 libnss3-1d \
 libxss1 \
 ncurses-term \
-lib32stdc++6 \
-lib32asound2 \
-ia32-libs \
-libc6-i386 \
-lib32gcc1 \
 gtk-theme-switch \
 nitrogen \
 scrot \
