@@ -63,7 +63,7 @@ fi
 # 5.                     FONTS
 #===========================================================
 e_arrow 'Installing fonts'
-sudo mkdir /usr/share/fonts/truetype/custom > /dev/null 2>&1
+sudo mkdir /usr/share/fonts/truetype/custom -p > /dev/null 2>&1
 sudo cp resources/fonts/Monaco_Linux-Powerline.ttf /usr/share/fonts/truetype/custom/
 e_arrow 'Rebuilding fonts cache'
 sudo fc-cache -f
