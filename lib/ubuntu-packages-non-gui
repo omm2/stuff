@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+e_arrow 'Installing packages'
+
+sudo apt-get -qq update
+sudo apt-get -qq install \
+curl \
+htop \
+zsh \
+vim  \
+aptitude \
+ack-grep \
+wmctrl \
+ncurses-term \
+libc6-dev \
+libmysql++-dev \
+libsqlite3-dev \
+make \
+build-essential \
+libssl-dev \
+libreadline6-dev \
+zlib1g-dev \
+libyaml-dev \
+autoconf \
+tree \

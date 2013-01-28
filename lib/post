@@ -35,6 +35,8 @@ else
   e_arrow 'Installing rbenv'
   git clone -q git://github.com/sstephenson/rbenv.git ~/.rbenv
   git clone -q git://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+  # TODO:
+  # Think about how to make it easier
   cd ~/.rbenv/plugins/ruby-build
   ./install.sh
   sudo chown madundead:madundead ~/.rbenv -R
