@@ -312,8 +312,8 @@ imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
 
-" leader + , to launch NERDTree
-nmap <leader>n :NERDTree <CR>
+" leader + n to launch NERDTree
+map <leader>n :NERDTreeToggle<CR>
 
 " hide matches on <leader>space
 nnoremap <leader><space> :nohlsearch<cr>
