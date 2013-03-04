@@ -27,11 +27,7 @@
 " turn off vi-compatible mode
 set nocompatible
 
-" includes ftplugin.vim which is responsible for filetype detection
-filetype plugin indent on
-
-" default indentation rules
-autocmd BufEnter *.c,*.cpp,*.java,*.php,*.html,*.erb,*.css,*.scss,*.sass,*.js,*.coffee,*.yml,*.sh,*.rake,*.feature,*.json,*.md,*.mdown,*.ru,*.sql,*.txt,*.xml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+source ~/.vimrc.plugins
 
 " encoding
 set encoding=utf-8
@@ -40,14 +36,19 @@ set fileencoding=utf-8
 " quantity of lines vim have to remember
 set history=500
 
-" set syntax highlighting
-syntax on
-
 " setting up <leader>
 let mapleader=","
 let g:mapleader=","
 
-source ~/.vimrc.plugins
+" includes ftplugin.vim which is responsible for filetype detection
+filetype plugin indent on
+
+" default indentation rules
+autocmd BufEnter *.c,*.cpp,*.java,*.php,*.html,*.erb,*.css,*.scss,*.sass,*.js,*.coffee,*.yml,*.sh,*.rake,*.feature,*.json,*.md,*.mdown,*.ru,*.sql,*.txt,*.xml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
+" set syntax highlighting
+syntax on
+
 
 " ========================================================
 " -> Plugin settings
@@ -352,6 +353,10 @@ nnoremap yy Y
 " Y to yank til the end of line
 nnoremap Y y$
 
+" jj => ESC
+imap jj <ESC>
+
+" vv => vsplit
 nnoremap <silent> vv <C-w>v
 
 " window title is always 'vim'
