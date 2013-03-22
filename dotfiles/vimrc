@@ -349,6 +349,12 @@ nmap <silent> <C-N> :silent noh<CR>
 map N Nzz
 map n nzz
 
+nnoremap j gj
+nnoremap k gk
+
+vnoremap < <gv
+vnoremap > >gv
+
 " yy to yank whole line
 nnoremap yy Y
 " Y to yank til the end of line
