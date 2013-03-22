@@ -326,6 +326,7 @@ nmap <leader>g :Gitv <CR>
 map <leader>p "+p
 map <leader>y "+y
 
+map <leader>s csw
 
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
