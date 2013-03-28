@@ -328,6 +328,8 @@ map <leader>y "+y
 
 map <leader>s csw
 
+map <leader>b :Gblame<CR>
+
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
 
