@@ -1,27 +1,45 @@
 #!/usr/bin/env bash
+#
+# Inspired by:
+# https://github.com/cowboy/dotfiles
 
-e_arrow 'Installing packages'
+packages=(
+  curl
+  htop
+  zsh
+  vim
+  tmux
+  tree
+  tig
+  aptitude
+  ack-grep
+  wmctrl
+  ncurses-term
+  libc6-dev
+  libmysql++-dev
+  libsqlite3-dev
+  make
+  build-essential
+  libssl-dev
+  libreadline6-dev
+  zlib1g-dev
+  libyaml-dev
+  autoconf
+)
 
-sudo apt-get -qq update
-sudo apt-get -qq install \
-curl \
-htop \
-zsh \
-vim  \
-tmux  \
-tree \
-tig \
-aptitude \
-ack-grep \
-wmctrl \
-ncurses-term \
-libc6-dev \
-libmysql++-dev \
-libsqlite3-dev \
-make \
-build-essential \
-libssl-dev \
-libreadline6-dev \
-zlib1g-dev \
-libyaml-dev \
-autoconf \
+list=()
+for package in "${packages[@]}"; do
+  if [[ ! "$(dpkg -l "$package" 2>/dev/null | grep "^ii  $package")" ]]; then
+    list=("${list[@]}" "$package")
+  fi
+done
+
+if (( ${#list[@]} > 0 )); then
+  e_arrow "Installing packages: ${list[*]}"
+  sudo apt-get -qq update
+  for package in "${list[@]}"; do
+    sudo apt-get -qq install "$package"
+  done
+else
+  e_success "All essential packages are already here."
+fi
