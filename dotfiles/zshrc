@@ -10,6 +10,7 @@ export EDITOR="vim"
 
 # Aliases
 alias be="bundle exec"
+alias bez="bundle exec zeus"
 alias dspace="df -h -T"
 alias v="vim"
 alias imgur="~/.resources/bin/imgur"
