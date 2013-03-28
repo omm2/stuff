@@ -8,6 +8,9 @@ curl \
 htop \
 zsh \
 vim  \
+tmux  \
+tree \
+tig \
 aptitude \
 ack-grep \
 wmctrl \
@@ -22,4 +25,3 @@ libreadline6-dev \
 zlib1g-dev \
 libyaml-dev \
 autoconf \
-tree \
