@@ -72,6 +72,8 @@ let g:ackprg = "ack-grep -H --nocolor --nogroup --column"
 " fix for Ack.vim bleeding its output into host terminal
 let &shellpipe="&>"
 
+let g:vroom_use_vimux = 1
+
 
 " ========================================================
 " -> Colors & Fonts
@@ -389,3 +391,6 @@ nnoremap <silent> <Leader>w :call <SID>StripTrailingWhitespaces()<CR>
 " Edit/Reload Vimrc
 map <silent> <leader>ev :edit ~/.vimrc<CR>
 map <silent> <leader>sv :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Find conflict markers
+nmap <silent> <leader>c <ESC>/\v^[<=>]{7}( .*\|$)<CR>
