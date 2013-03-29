@@ -38,6 +38,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'nelstrom/vim-visual-star-search'
 Bundle 'benmills/vimux'
+Bundle 'xolox/vim-notes'
 
 " ======== Snippets  =====================================
 

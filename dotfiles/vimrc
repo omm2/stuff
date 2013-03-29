@@ -74,6 +74,8 @@ let &shellpipe="&>"
 
 let g:vroom_use_vimux = 1
 
+let g:notes_directory = '~/Dropbox/Notes'
+
 
 " ========================================================
 " -> Colors & Fonts
@@ -308,9 +310,7 @@ vmap <F3> <Esc>:Ack
 nnoremap <F4> za
 
 " lets try to use dropbox file as notepad
-nmap <F5> :sp ~/Dropbox/Backup/notes.md<CR>
-imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
-imap <F5> <Esc> :sp ~/Dropbox/Backup/notes.md<CR>
+nmap <F5> :sp note:main<CR>
 
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
