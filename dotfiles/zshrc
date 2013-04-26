@@ -22,6 +22,10 @@ alias mashup="cd ~/Development/madundead/mashup"
 alias fugu="cd ~/Development/madundead/fugu"
 alias open="x-www-browser"
 
+alias root='sudo su'
+alias reboot='sudo reboot'
+alias shutdown='sudo shutdown -hP now'
+
 # Important aliases
 alias gimmeh='touch'
 alias byes='exit'

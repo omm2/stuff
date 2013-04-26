@@ -44,7 +44,7 @@ let g:mapleader=","
 filetype plugin indent on
 
 " default indentation rules
-autocmd BufEnter *.c,*.cpp,*.java,*.php,*.html,*.erb,*.css,*.scss,*.sass,*.js,*.coffee,*.yml,*.sh,*.rake,*.feature,*.json,*.md,*.mdown,*.ru,*.sql,*.txt,*.xml set expandtab tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufEnter *.c,*.cpp,*.java,*.php,*.html,*.erb,*.css,*.scss,*.sass,*.js,*.coffee,*.yml,*.sh,*.rake,*.feature,*.json,*.md,*.mdown,*.ru,*.sql,*.txt,*.xml set expandtab noeol tabstop=2 shiftwidth=2 softtabstop=2
 
 " set syntax highlighting
 syntax on
@@ -208,6 +208,9 @@ if has("autocmd")
   " YAML
   autocmd FileType yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
+  " Treat JSON files like JavaScript
+  au BufNewFile,BufRead *.json set ft=javascript
+
   " CSS
   autocmd FileType css setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
@@ -277,6 +280,12 @@ nmap <silent> <Down> :wincmd j<CR>
 nmap <silent> <Left> :wincmd h<CR>
 nmap <silent> <Right> :wincmd l<CR>
 
+" Move between splits
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " change size of vsplited buffers by <Alt> + arrows
 map <A-Left> <C-W><
 map <A-Right> <C-W>>
@@ -307,10 +316,10 @@ imap <F3> <Esc>:Ack
 vmap <F3> <Esc>:Ack 
 
 " folding by F4
-nnoremap <F4> za
+nnoremap <Space> za
 
 " lets try to use dropbox file as notepad
-nmap <F5> :sp note:main<CR>
+nmap <F5> :sp note:Main<CR>
 
 " leader + a to copy all text from current buffer
 nmap <leader>a :%y+ <CR>
@@ -331,6 +340,9 @@ map <leader>y "+y
 map <leader>s csw
 
 map <leader>b :Gblame<CR>
+
+map <leader>cc :CoffeeCompile<CR>
+map <leader>cv :CoffeeCompile watch<CR>
 
 " leader + z to zencode
 nmap <leader>z <C-y>, <CR>
@@ -369,6 +381,9 @@ imap jj <ESC>
 
 " vv => vsplit
 nnoremap <silent> vv <C-w>v
+
+" toggle between last open buffers
+nnoremap <leader><leader> <c-^>
 
 " window title is always 'vim'
 auto BufEnter * let &titlestring = "vim"
