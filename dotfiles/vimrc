@@ -211,10 +211,17 @@ if has("autocmd")
   " Treat JSON files like JavaScript
   au BufNewFile,BufRead *.json set ft=javascript
 
+  " Treat LESS files like CSS
+  au BufNewFile,BufRead *.less set filetype=css
+
+  " Treat HBS files like HTML
+  au BufNewFile,BufRead *.hbs set filetype=html
+
   " CSS
   autocmd FileType css setlocal autoindent expandtab shiftwidth=2 softtabstop=2
 
   au BufNewFile,BufReadPost *.coffee setl filetype=coffee
+  au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
 
   " Rabl
   au BufNewFile,BufReadPost *.rabl setl filetype=ruby
@@ -251,6 +258,8 @@ if has("autocmd")
     au!
     au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
   augroup end "}}}
+
+  au FileType python setlocal autoindent expandtab shiftwidth=2 tabstop=2 softtabstop=2
 endif
 
 
