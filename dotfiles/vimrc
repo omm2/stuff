@@ -89,7 +89,7 @@ if has('gui_running')
   set guioptions-=m                         " remove menubar
   set guioptions+=LlRrb                     " remove
   set guioptions-=LlRrb                     " scrollbars
-  set guifont=Monaco\ for\ Powerline\ 10    " patched monaco font
+  set guifont=Monaco\ for\ Powerline\ 20    " patched monaco font
   set t_Co=256
   let g:solarized_termcolors=256
   let g:Powerline_theme='solarized256'
@@ -214,11 +214,14 @@ if has("autocmd")
   " Treat LESS files like CSS
   au BufNewFile,BufRead *.less set filetype=css
 
+  " Treat SASS files like CSS
+  au BufNewFile,BufRead *.scss set filetype=css
+
   " Treat HBS files like HTML
   au BufNewFile,BufRead *.hbs set filetype=html
 
   " CSS
-  autocmd FileType css setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+  autocmd FileType css setlocal autoindent expandtab shiftwidth=4 softtabstop=4
 
   au BufNewFile,BufReadPost *.coffee setl filetype=coffee
   au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw!
@@ -237,9 +240,9 @@ if has("autocmd")
     au!
     au BufNewFile,BufRead *.phtml set filetype=html
     au BufNewFile,BufRead *.erb set filetype=eruby
-    au FileType haml setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-    au FileType html setlocal autoindent expandtab shiftwidth=2 softtabstop=2
-    au FileType eruby setlocal autoindent expandtab shiftwidth=2 softtabstop=2
+    au FileType haml setlocal autoindent expandtab shiftwidth=4 softtabstop=4
+    au FileType html setlocal autoindent expandtab shiftwidth=4 softtabstop=4
+    au FileType eruby setlocal autoindent expandtab shiftwidth=4 softtabstop=4
   augroup end " }}}
 
   augroup ruby_files "{{{
@@ -256,7 +259,7 @@ if has("autocmd")
 
   augroup javascript_files "{{{
     au!
-    au BufNewFile,BufReadPost *.js setl shiftwidth=2 expandtab
+    au BufNewFile,BufReadPost *.js setl shiftwidth=4 expandtab
   augroup end "}}}
 
   au FileType python setlocal autoindent expandtab shiftwidth=2 tabstop=2 softtabstop=2
@@ -418,3 +421,11 @@ map <silent> <leader>sv :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vim
 
 " Find conflict markers
 nmap <silent> <leader>c <ESC>/\v^[<=>]{7}( .*\|$)<CR>
+
+"syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_echo_current_error=1
+let g:syntastic_enable_signs=1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_loc_list_height=5
+let g:syntastic_javascript_checkers = ['eslint']

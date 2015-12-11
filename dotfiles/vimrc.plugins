@@ -23,6 +23,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5.vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'Syntastic'
 
 " ======== Utility  ======================================
 
