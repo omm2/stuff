@@ -9,8 +9,8 @@
 ################################################################################
 
 [user]
-  name = Anna Pavlova
-  email = a_pavlova@wargaming.net
+	name = Anna Pavlova
+	email = anna.pbox@gmail.com
 
 [color]
   diff = auto
@@ -66,4 +66,4 @@
   default = current
 
 [github]
-  user = madundead
+  user = omm2

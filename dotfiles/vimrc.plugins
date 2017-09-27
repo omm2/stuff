@@ -23,7 +23,9 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'othree/html5.vim'
 Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'kchmck/vim-coffee-script'
-Bundle 'Syntastic'
+Bundle 'scrooloose/syntastic'
+Bundle 'nvie/vim-flake8'
+Plugin 'vim-scripts/indentpython.vim'
 
 " ======== Utility  ======================================
 
